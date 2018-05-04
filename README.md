@@ -1,11 +1,11 @@
-
 #框架说明
+
 
 .DMS框架是采用LINQ的写法的一个数据库访问框架。具体使用与现有的LINQ写法差不多一致。
 
-
 #常用的写法
-1、单列添加/修改/删除
+1、单列添加/修改/删除   
+
 	Pro_FundCompany entity = new Pro_FundCompany()
 	{
 		FundKey = Guid.NewGuid(),
@@ -17,11 +17,17 @@
 	return DMS.Create<T>().InsertIdentity(entity);
 	return DMS.Create<T>().Edit(entity, q=>q.id=id) > 0;
 	return DMS.Create<T>().Delete(q=>q.id=id) > 0;
+	
+	
  返回int类型
  
 2、查询语句
-	基本查询：DMS.Create<Pro_FundCompany>().Where(q => q.FundName == param.FundName && q.DeleteFlag == false).ToList();
-	分页查询： DMS.Create<T>().Where(q => q.VestName.Like(entity.VestName)&& q => q.VestType == entity.VestType)
+
+	基本查询：
+	DMS.Create<Pro_FundCompany>().Where(q => q.FundName == param.FundName && q.DeleteFlag == false).ToList();
+	
+	分页查询： 
+	DMS.Create<T>().Where(q => q.VestName.Like(entity.VestName)&& q => q.VestType == entity.VestType)
 					.OrderBy(q => q.OrderBy(q.CreateTime.Desc()))
 					.Pager(entity.PageIndex, entity.PageSize)
 					.ToConditionResult(entity.TotalCount);
