@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0A022D0E-28AE-4CB7-96E8-4F26A9714BEB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DMSFrame</RootNamespace>
+    <AssemblyName>DMSFrame</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Release\DMSFrame.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\ReferenceLibrary\Frame\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Access\DMSDbAccess.cs" />
+    <Compile Include="Access\DMSDbProvider.cs" />
+    <Compile Include="Access\DMSStoredProcedureHandler.cs" />
+    <Compile Include="Access\DMSTransactionScopeBulkCopyEntity.cs" />
+    <Compile Include="Access\DMSTransactionScopeEntity.cs" />
+    <Compile Include="Access\DMSTransactionScopeHandler.cs" />
+    <Compile Include="Access\Mssql\DMSMssqlDbProvider.cs" />
+    <Compile Include="Access\Mapper\CacheInfo.cs" />
+    <Compile Include="Access\Mapper\CacheMapper.cs" />
+    <Compile Include="Access\Mapper\DbString.cs" />
+    <Compile Include="Access\Mapper\DontMap.cs" />
+    <Compile Include="Access\Mapper\DynamicParameters.cs" />
+    <Compile Include="Access\Mapper\FastExpando.cs" />
+    <Compile Include="Access\Mapper\Identity.cs" />
+    <Compile Include="Access\Mapper\IDynamicParameters.cs" />
+    <Compile Include="Access\Mapper\Link.cs" />
+    <Compile Include="Access\Mapper\MapperGenerator.cs" />
+    <Compile Include="Access\Mapper\ParamInfo.cs" />
+    <Compile Include="Access\Mapper\PropInfo.cs" />
+    <Compile Include="Access\Mysql\DMSMysqlDbProvider.cs" />
+    <Compile Include="Attribute\ColumnMappingAttribute.cs" />
+    <Compile Include="Attribute\StoredProcedureMappingAttribute.cs" />
+    <Compile Include="Attribute\TableMappingAttribute.cs" />
+    <Compile Include="DMS.cs" />
+    <Compile Include="DMS_T.cs" />
+    <Compile Include="Entity\BaseEntity.cs" />
+    <Compile Include="Entity\ConditionResult.cs" />
+    <Compile Include="DBEntity\Mssql\extended_properties.cs" />
+    <Compile Include="DBEntity\Mssql\syscolumns.cs" />
+    <Compile Include="DBEntity\Mssql\sysobjects.cs" />
+    <Compile Include="Entity\DMSEntitys.cs" />
+    <Compile Include="Entity\DMSResultAccess.cs" />
+    <Compile Include="Entity\EnumCollections.cs" />
+    <Compile Include="Entity\Interface\INotifyChanged.cs" />
+    <Compile Include="Entity\Interface\IPaging.cs" />
+    <Compile Include="Entity\Interface\ISPEntity.cs" />
+    <Compile Include="Entity\Interface\ISPPaging.cs" />
+    <Compile Include="Entity\PagingEntity.cs" />
+    <Compile Include="Entity\PropertyChangedEventArgs.cs" />
+    <Compile Include="Entity\SequenceEntity.cs" />
+    <Compile Include="Entity\SPEntity.cs" />
+    <Compile Include="Entity\SPPagingEntity.cs" />
+    <Compile Include="Extentions\ColumnsClip.cs" />
+    <Compile Include="Extentions\DbSet.cs" />
+    <Compile Include="Extentions\DMSFrameAsyncExtentions.cs" />
+    <Compile Include="Extentions\DMSFrameJoinExtentions.cs" />
+    <Compile Include="Extentions\DMSFrameOptionExtentions.cs" />
+    <Compile Include="Extentions\DMSFrameQueryExtentions.cs" />
+    <Compile Include="Extentions\GroupByClip.cs" />
+    <Compile Include="Extentions\OrderByClip.cs" />
+    <Compile Include="Extentions\WhereClip.cs" />
+    <Compile Include="Helpers\CollectionHelper.cs" />
+    <Compile Include="Helpers\ConfigurationHelper.cs" />
+    <Compile Include="Helpers\CopyHelper.cs" />
+    <Compile Include="Helpers\Emit\EmitHelper.cs" />
+    <Compile Include="Helpers\Emit\FastInvoke.cs" />
+    <Compile Include="Helpers\Emit\FieldProperty.cs" />
+    <Compile Include="Helpers\Emit\ForEntity\IPropertyQuicker.cs" />
+    <Compile Include="Helpers\Emit\ForEntity\PropertyQuickerEmitter.cs" />
+    <Compile Include="Helpers\Emit\ForEntity\PropertyQuickerFactory.cs" />
+    <Compile Include="Helpers\FileHelper.cs" />
+    <Compile Include="Helpers\FileSystemWatcherHelper.cs" />
+    <Compile Include="Helpers\ILGlobals.cs" />
+    <Compile Include="Helpers\MapItem.cs" />
+    <Compile Include="Helpers\NullReferenceHelper.cs" />
+    <Compile Include="Helpers\ReflectionHelper.cs" />
+    <Compile Include="Helpers\SoftRegHelper.cs" />
+    <Compile Include="Helpers\StringHelper.cs" />
+    <Compile Include="Helpers\TaskAsyncHelper.cs" />
+    <Compile Include="Helpers\TypeHelper.cs" />
+    <Compile Include="Helpers\TypeLoadConfig.cs" />
+    <Compile Include="Extentions\DMSFrameExtentions.cs" />
+    <Compile Include="Interfaces\IDMSResultAccess.cs" />
+    <Compile Include="Loggers\Log\DataAgileLogger.cs" />
+    <Compile Include="Loggers\Log\DMSDataLoggerProvider.cs" />
+    <Compile Include="Loggers\Log\DMSLinqDataLoggerExtensions.cs" />
+    <Compile Include="Loggers\Log\EmptyAgileLogger.cs" />
+    <Compile Include="Loggers\Log\FileAgileLogger.cs" />
+    <Compile Include="Loggers\Log\FileLogger.cs" />
+    <Compile Include="Loggers\Log\IAgileLogger.cs" />
+    <Compile Include="Loggers\Log\ILogger.cs" />
+    <Compile Include="Loggers\Log\LoggerManager.cs" />
+    <Compile Include="MiniProfiler\DMSProfilerExtentions.cs" />
+    <Compile Include="MiniProfiler\DMSProfilerProvider.cs" />
+    <Compile Include="MiniProfiler\IDMSDbProfiler.cs" />
+    <Compile Include="Security\DES.cs" />
+    <Compile Include="Security\SecurityHelper.cs" />
+    <Compile Include="Serialization\BaseCompactSerializer.cs" />
+    <Compile Include="Serialization\ByteConverter.cs" />
+    <Compile Include="Serialization\ByteConverterFactory.cs" />
+    <Compile Include="Serialization\ByteNullableConverter.cs" />
+    <Compile Include="Serialization\CompactFieldSerializer.cs" />
+    <Compile Include="Serialization\CompactPropertySerializeCache.cs" />
+    <Compile Include="Serialization\CompactPropertySerializer.cs" />
+    <Compile Include="Serialization\CompactSerializeCache.cs" />
+    <Compile Include="Serialization\DataTableSerializer.cs" />
+    <Compile Include="Serialization\DMSConverter.cs" />
+    <Compile Include="Serialization\ICompactSerializer.cs" />
+    <Compile Include="Utils\EntityExtensions.cs" />
+    <Compile Include="Interfaces\IDMSColumnsExpression.cs" />
+    <Compile Include="Interfaces\IDMSExpression.cs" />
+    <Compile Include="Interfaces\IDMSOrderByExpression.cs" />
+    <Compile Include="Interfaces\IDMSTableExpression.cs" />
+    <Compile Include="Interfaces\IDMSWhereExpression.cs" />
+    <Compile Include="Interfaces\IDMSGroupByExpression.cs" />
+    <Compile Include="Interfaces\IDMSHavingExpression.cs" />
+    <Compile Include="Entity\Interface\IEntity.cs" />
+    <Compile Include="Loggers\IDMSLog.cs" />
+    <Compile Include="Loggers\ILogDMSFactory.cs" />
+    <Compile Include="Loggers\LogDMSManager.cs" />
+    <Compile Include="Loggers\NullDebugDMSLogger.cs" />
+    <Compile Include="Loggers\NullLogDMSFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ConstExpression.cs" />
+    <Compile Include="TableConfig\TableConfigCollection.cs" />
+    <Compile Include="TableConfig\TableConfigReader.cs" />
+    <Compile Include="TableConfig\TableConfiguration.cs" />
+    <Compile Include="Utils\CollectionConverter.cs" />
+    <Compile Include="Utils\CollectionUtils.cs" />
+    <Compile Include="Utils\DMSFrameException.cs" />
+    <Compile Include="Utils\DMSOperators.cs" />
+    <Compile Include="Utils\EnumDescription.cs" />
+    <Compile Include="Utils\ExpressionExtentions.cs" />
+    <Compile Include="Utils\MemberInfoExtensions.cs" />
+    <Compile Include="Utils\ReflectionUtils.cs" />
+    <Compile Include="Utils\StringUtils.cs" />
+    <Compile Include="Utils\TryParse.cs" />
+    <Compile Include="Utils\TypeConvert.cs" />
+    <Compile Include="Utils\TypeExtentions.cs" />
+    <Compile Include="Utils\ZipTool.cs" />
+    <Compile Include="Visitor\DMSColumnsExpressionVisitor.cs" />
+    <Compile Include="Visitor\DMSExpression.cs" />
+    <Compile Include="Visitor\DMSExpressionVisitor.cs" />
+    <Compile Include="Visitor\DMSGroupByExpressionVisitor.cs" />
+    <Compile Include="Visitor\DMSHavingExpressionVisitor.cs" />
+    <Compile Include="Visitor\DMSOrderByExpressionVisitor.cs" />
+    <Compile Include="Visitor\DMSSplitExpressionVistor.cs" />
+    <Compile Include="Visitor\DMSTableExpressionVisitor.cs" />
+    <Compile Include="Visitor\DMSWhereExpressionVisitor.cs" />
+    <Compile Include="Visitor\Modifier\IDMSExpressionModifier.cs" />
+    <Compile Include="Visitor\Modifier\LocalDMSExpressionChecker.cs" />
+    <Compile Include="Visitor\Modifier\LocalDMSExpressionModifier.cs" />
+    <Compile Include="Visitor\Mssql\DMSColumnsMssqlExpressionVisitor.cs" />
+    <Compile Include="Visitor\Mssql\DMSGroupByMssqlExpressionVisitor.cs" />
+    <Compile Include="Visitor\Mssql\DMSHavingMssqlExpressionVisitor.cs" />
+    <Compile Include="Visitor\Mssql\DMSOrderByMssqlExpressionVisitor.cs" />
+    <Compile Include="Visitor\Mssql\DMSSplitMssqlExpressionVistor.cs" />
+    <Compile Include="Visitor\Mssql\DMSTableMssqlExpressionVisitor.cs" />
+    <Compile Include="Visitor\Modifier\RemoveNullDMSExpressionModifier.cs" />
+    <Compile Include="Visitor\Mssql\DMSWhereMssqlExpressionVisitor.cs" />
+    <Compile Include="Visitor\Mysql\DMSColumnsMysqlExpressionVisitor.cs" />
+    <Compile Include="Visitor\Mysql\DMSGroupByMysqlExpressionVisitor.cs" />
+    <Compile Include="Visitor\Mysql\DMSHavingMysqlExpressionVisitor.cs" />
+    <Compile Include="Visitor\Mysql\DMSOrderByMysqlExpressionVisitor.cs" />
+    <Compile Include="Visitor\Mysql\DMSSplitMysqlExpressionVistor.cs" />
+    <Compile Include="Visitor\Mysql\DMSTableMysqlExpressionVisitor.cs" />
+    <Compile Include="Visitor\Mysql\DMSWhereMysqlExpressionVisitor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MiniProfiler\DMSEmptyProfiler.IDMSDbProfiler.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(ProjectDir)..\..\ReferenceLibrary\ /y</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

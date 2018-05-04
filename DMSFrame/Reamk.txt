@@ -1,0 +1,2 @@
+﻿后期生成事件命令行
+copy $(TargetPath) $(ProjectDir)..\..\ReferenceLibrary\ /y
