@@ -33,9 +33,11 @@
 					.ToConditionResult(entity.TotalCount);
  
 3、事物处理
+
 DMSTransactionScopeEntity tsEntity = new DMSTransactionScopeEntity();
 
 #多表更新的写法,不能相同的表
+
 	tsEntity.EditTS<Pro_ProductSpec, Pro_ProductMST>(x => new Pro_ProductSpec()
 	{
 		ProductID = x.ProductID
@@ -54,6 +56,7 @@ DMSTransactionScopeEntity tsEntity = new DMSTransactionScopeEntity();
 	}, x => x.ProductID == 1000);
 
 #事物统一处理
+
 	string errMsg = "";
 	if (!new DMSTransactionScopeHandler().Update(tsEntity, ref errMsg))
 	{
