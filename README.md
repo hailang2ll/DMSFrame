@@ -24,9 +24,11 @@
 2、查询语句
 
 基本查询：
+
 DMS.Create<Pro_FundCompany>().Where(q => q.FundName == param.FundName && q.DeleteFlag == false).ToList();
 	
 分页查询： 
+
 DMS.Create<T>().Where(q => q.VestName.Like(entity.VestName)&& q => q.VestType == entity.VestType)
 .OrderBy(q => q.OrderBy(q.CreateTime.Desc()))
 .Pager(entity.PageIndex, entity.PageSize)
