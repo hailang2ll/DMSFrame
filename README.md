@@ -4,6 +4,7 @@
 .DMS框架是采用LINQ的写法的一个数据库访问框架。具体使用与现有的LINQ写法差不多一致。
 
 #常用的写法
+
 1、单列添加/修改/删除   
 
 	Pro_FundCompany entity = new Pro_FundCompany()
@@ -46,6 +47,7 @@ tsEntity.EditTS<Pro_ProductSpec, Pro_ProductMST>(x => new Pro_ProductSpec()
 }, (x, y) => x.ProductKey == y.ProductKey && x.ProductKey == Guid.NewGuid(),"更新表数据库名称(默认为空)","条件表数据库名称(默认为空)");
 
 // Insert into .... Select 写法,where条件不能为空
+
 tsEntity.AddTS<Pro_ProductSpec, Pro_ProductMST>(product => new Pro_ProductSpec()
 {
     ProductID = product.ProductID
