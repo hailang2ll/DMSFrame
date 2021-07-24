@@ -318,3 +318,5 @@ ASALocalRun/
 
 # MSBuild Binary and Structured Log
 *.binlog
+/ReferenceLibrary/Frame_new
+/ReferenceLibrary/Frame_old
