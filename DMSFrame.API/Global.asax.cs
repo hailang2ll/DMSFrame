@@ -10,8 +10,16 @@ using System.Web.Http;
 
 namespace DMSFrame.API
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Global : HttpApplication
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void Application_Start(object sender, EventArgs e)
         {
             // 在应用程序启动时运行的代码
