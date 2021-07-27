@@ -11,7 +11,7 @@ namespace DMSFrame
     /// 
     /// </summary>
     /// <typeparam name="T">类型参数必须是引用类型；这一点也适用于任何类、接口、委托或数组类型。</typeparam>
-    public sealed class DMS<T> : DMS, IEnumerable, IEnumerable<T>
+    public sealed class DMS<T> : DMST, IEnumerable, IEnumerable<T>
         where T : class
     {
 
@@ -35,7 +35,7 @@ namespace DMSFrame
         /// 
         /// </summary>
         /// <param name="dms"></param>
-        internal DMS(DMS dms)
+        internal DMS(DMST dms)
             : base(typeof(T), dms)
         {
 
@@ -332,7 +332,7 @@ namespace DMSFrame
     /// </summary>
     /// <typeparam name="TEntity">需要更新的表,类型参数必须是引用类型；这一点也适用于任何类、接口、委托或数组类型。</typeparam>
     /// <typeparam name="TWhere">充当条件信息的表,类型参数必须是引用类型；这一点也适用于任何类、接口、委托或数组类型。</typeparam>
-    public sealed class DMS<TEntity, TWhere> : DMS
+    public sealed class DMS<TEntity, TWhere> : DMST
         where TEntity : class
         where TWhere : class
     {

@@ -20,7 +20,7 @@ namespace DMSFrame
         /// <returns></returns>
         public int UpdateAsync(T entity, Expression<Func<T, bool>> whereFunc)
         {
-            return DMS.Create<T>().Edit(entity, whereFunc);
+            return DMST.Create<T>().Edit(entity, whereFunc);
         }
         /// <summary>
         /// 
@@ -29,7 +29,7 @@ namespace DMSFrame
         /// <returns></returns>
         public int AddAsync(T entity)
         {
-            return DMS.Create<T>().Insert(entity);
+            return DMST.Create<T>().Insert(entity);
         }
         /// <summary>
         /// 
@@ -38,7 +38,7 @@ namespace DMSFrame
         /// <returns></returns>
         public int AddIdentityAsync(T entity)
         {
-            return DMS.Create<T>().InsertIdentity(entity);
+            return DMST.Create<T>().InsertIdentity(entity);
         }
         /// <summary>
         /// 
@@ -47,7 +47,7 @@ namespace DMSFrame
         /// <returns></returns>
         public T Get(Expression<Func<T, bool>> whereFunc)
         {
-            return DMS.Create<T>().Where(whereFunc).ToEntity();
+            return DMST.Create<T>().Where(whereFunc).ToEntity();
         }
         /// <summary>
         /// 
@@ -56,7 +56,7 @@ namespace DMSFrame
         /// <returns></returns>
         public int DeleteAsync(Expression<Func<T, bool>> whereFunc)
         {
-            return DMS.Create<T>().Delete(whereFunc);
+            return DMST.Create<T>().Delete(whereFunc);
         }
     }
 }

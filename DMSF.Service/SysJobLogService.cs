@@ -45,7 +45,7 @@ namespace DMSF.Service
             tsEntity.AddTS(entity);
 
             //单个新增
-            int intflag = DMS.Create<Sys_JobLog>().InsertIdentity(entity);
+            int intflag = DMST.Create<Sys_JobLog>().InsertIdentity(entity);
 
             //修改实体
             Sys_JobLog update = new Sys_JobLog()
@@ -87,7 +87,7 @@ namespace DMSF.Service
                 result.errmsg = "参数不合法";
                 return Task.FromResult(result);
             }
-            ConditionResult<JobLogResult> resultList = DMS.Create<Sys_JobLog>()
+            ConditionResult<JobLogResult> resultList =DMST.Create<Sys_JobLog>()
                    .Where(p => p.JobLogType == 1)
                    .OrderBy(p => p.OrderBy(p.CreateTime.Desc()))
                    .Pager(param.PageIndex, param.PageSize)
@@ -113,7 +113,7 @@ namespace DMSF.Service
                 result.errmsg = "参数错误";
                 return Task.FromResult(result);
             }
-            Sys_JobLog entity = DMS.Create<Sys_JobLog>().Where(q => q.JobLogID == jobLogID).FirstOrDefault();
+            Sys_JobLog entity = DMST.Create<Sys_JobLog>().Where(q => q.JobLogID == jobLogID).FirstOrDefault();
             if (entity != null)
             {
                 JobLogResult item = new JobLogResult()
@@ -145,7 +145,7 @@ namespace DMSF.Service
                 return Task.FromResult(result);
             }
             int flag = 0; //DMS.Create<Sys_JobLog>().Edit(new Sys_JobLog { DeleteFlag = true }, p => p.JobLogID == jobLogID);
-            flag = DMS.Create<Sys_JobLog>().Delete(q => q.JobLogID == 1);
+            flag = DMST.Create<Sys_JobLog>().Delete(q => q.JobLogID == 1);
             if (flag > 0)
             {
                 result.errno = 0;
@@ -182,7 +182,7 @@ namespace DMSF.Service
                 Message = param.Message,
             };
 
-            int intFlag = DMS.Create<Sys_JobLog>().Edit(entity, p => p.JobLogID == param.JobLogID);
+            int intFlag = DMST.Create<Sys_JobLog>().Edit(entity, p => p.JobLogID == param.JobLogID);
             if (intFlag > 0)
             {
                 result.errno = 0;

@@ -20,7 +20,7 @@ namespace DMSFrame
         public static int UpdateAsync<T>(this T entity, System.Linq.Expressions.Expression<Func<T, bool>> whereFunc)
             where T : class,IEntity
         {
-            return DMS.Create<T>().Edit(entity, whereFunc);
+            return DMST.Create<T>().Edit(entity, whereFunc);
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace DMSFrame
         public static int AddAsync<T>(this T entity)
             where T : class,IEntity
         {
-            return DMS.Create<T>().Insert(entity);
+            return DMST.Create<T>().Insert(entity);
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace DMSFrame
         public static int AddIdentityAsync<T>(this T entity)
             where T : class,IEntity
         {
-            return DMS.Create<T>().InsertIdentity(entity);
+            return DMST.Create<T>().InsertIdentity(entity);
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace DMSFrame
         public static T Get<T>(this T entity, System.Linq.Expressions.Expression<Func<T, bool>> whereFunc)
             where T : class,IEntity
         {
-            return DMS.Create<T>().Where(whereFunc).ToEntity();
+            return DMST.Create<T>().Where(whereFunc).ToEntity();
         }
 
 

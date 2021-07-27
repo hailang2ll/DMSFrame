@@ -14,7 +14,7 @@ namespace DMSFrame
         /// <summary>
         /// 
         /// </summary>
-        internal static readonly IDMSLog Log = LogDMSManager.GetLogger(typeof(DMS));
+        internal static readonly IDMSLog Log = LogDMSManager.GetLogger(typeof(DMST));
         #region DMSInsert
 #if DEBUG
         public static DMS<T> DMSInsert<T>(this DMS<T> dms, T entity) where T : class
@@ -317,7 +317,7 @@ namespace DMSFrame
         /// <param name="dms"></param>
         /// <param name="entity"></param>
         /// <returns></returns>
-        internal static DMS DMSInsert(this DMS dms, IEntity entity)
+        internal static DMST DMSInsert(this DMST dms, IEntity entity)
         {
             dms.ExcuteType = DMSExcuteType.INSERT;
             IDictionary<string, object> ChangedProperties = ((IEntity)entity).ChangedMappingProperties;
@@ -331,7 +331,7 @@ namespace DMSFrame
             dms.ColumnsExpressioin.Append(lambdaExpr);
             return dms;
         }
-        internal static DMS DMSInsertIdentity(this DMS dms, IEntity entity)
+        internal static DMST DMSInsertIdentity(this DMST dms, IEntity entity)
         {
             dms.ExcuteType = DMSExcuteType.INSERTIDENTITY;
             IDictionary<string, object> ChangedProperties = ((IEntity)entity).ChangedMappingProperties;

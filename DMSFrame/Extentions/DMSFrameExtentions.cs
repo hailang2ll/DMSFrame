@@ -12,7 +12,7 @@ namespace DMSFrame
     /// </summary>
     public static class DMSFrameExtentions
     {
-        internal static readonly IDMSLog Log = LogDMSManager.GetLogger(typeof(DMS));
+        internal static readonly IDMSLog Log = LogDMSManager.GetLogger(typeof(DMST));
 
         #region Distinct
 

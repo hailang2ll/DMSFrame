@@ -47,7 +47,7 @@ namespace DMSFrame
         /// <param name="tableFunc">替换表名称</param>
         public void AddTS<T>(T entity, bool result, string bDataBase = ConstExpression.DataBase, Expression<Func<Type, string>> tableFunc = null) where T : class,IEntity
         {
-            DMS dms = DMS.Create(entity, entity.GetType(), bDataBase).DMSInsert(entity);
+            DMST dms = DMST.Create(entity, entity.GetType(), bDataBase).DMSInsert(entity);
             if (tableFunc != null)
             {
                 dms.TableExpressioin.ReplaceTable(tableFunc);
@@ -85,7 +85,7 @@ namespace DMSFrame
         {
             foreach (var entity in list)
             {
-                DMS dms = DMS.Create(entity, typeof(T), bDataBase).DMSInsert(entity);
+                DMST dms = DMST.Create(entity, typeof(T), bDataBase).DMSInsert(entity);
                 if (tableFunc != null)
                 {
                     dms.TableExpressioin.ReplaceTable(tableFunc);
@@ -167,7 +167,7 @@ namespace DMSFrame
         /// <param name="tableFunc">替换表名称</param>
         public void AddTSIndentity(IEntity entity, bool result, string bDataBase = ConstExpression.DataBase, Expression<Func<Type, string>> tableFunc = null)
         {
-            DMS dms = DMS.Create(entity, entity.GetType(), bDataBase).DMSInsertIdentity(entity);
+            DMST dms = DMST.Create(entity, entity.GetType(), bDataBase).DMSInsertIdentity(entity);
             if (tableFunc != null)
             {
                 dms.TableExpressioin.ReplaceTable(tableFunc);

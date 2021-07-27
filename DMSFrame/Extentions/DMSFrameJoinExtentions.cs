@@ -12,7 +12,7 @@ namespace DMSFrame
     /// </summary>
     public static class DMSFrameJoinExtentions
     {
-        internal static readonly IDMSLog Log = LogDMSManager.GetLogger(typeof(DMS));
+        internal static readonly IDMSLog Log = LogDMSManager.GetLogger(typeof(DMST));
         #region Join
         /// <summary>
         /// 表连接查询,INNER JOIN
@@ -362,7 +362,7 @@ namespace DMSFrame
 
                 Expression bExpr = Expression.MakeBinary(ExpressionType.Equal, outerKeySelector.Body, innerKeySelector.Body);
                 var whereClip = Expression.Lambda<Func<TOuter, TInner, bool>>(bExpr, xExpr, yExpr);
-                var innerJoin = DMS.Create<TInner>();
+                var innerJoin = DMST.Create<TInner>();
                 var list = Join(outer, innerJoin, whereClip, resultSelector);
                 return list;
             }
@@ -386,7 +386,7 @@ namespace DMSFrame
                     }
                 }
                 var whereClip = Expression.Lambda<Func<TOuter, TInner, bool>>(binaryExpr, xExpr, yExpr);
-                var innerJoin = DMS.Create<TInner>();
+                var innerJoin = DMST.Create<TInner>();
                 var list = Join(outer, innerJoin, whereClip, resultSelector);
                 return list;
             }

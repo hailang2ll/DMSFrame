@@ -40,7 +40,7 @@ namespace DMSFrame
         /// <summary>
         /// 
         /// </summary>
-        internal protected DMS DMSFrame { get; set; }
+        internal protected DMST DMSFrame { get; set; }
         /// <summary>
         /// 
         /// </summary>

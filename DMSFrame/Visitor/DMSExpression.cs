@@ -18,7 +18,7 @@ namespace DMSFrame
     /// </summary>
     public abstract class DMSExpression : DMSExpressionVisitor, IDMSExpression, IDMSExpressionModifier
     {
-        internal static readonly IDMSLog Log = LogDMSManager.GetLogger(typeof(DMS));
+        internal static readonly IDMSLog Log = LogDMSManager.GetLogger(typeof(DMST));
         /// <summary>
         /// 
         /// </summary>
