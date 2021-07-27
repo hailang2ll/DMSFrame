@@ -2,16 +2,22 @@
 
   <PropertyGroup>
     <TargetFrameworks>net45;net46;net461;net472</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data">
-      <HintPath>..\ReferenceLibrary\MySql.Data.dll</HintPath>
+      <HintPath>..\lib\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="If $(ConfigurationName) == Release (&#xD;&#xA;del $(ProjectDir)$(OutDir)..\*.nupkg /s/q&#xD;&#xA;exit 0&#xD;&#xA;)ELSE (echo &quot;Not Debug mode, no file del from nupkg&quot;)" />
+  </Target>
 
 </Project>
