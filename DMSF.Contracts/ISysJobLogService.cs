@@ -1,6 +1,6 @@
-﻿using DMSF.Common.BaseResult;
-using DMSF.Contracts.Param;
+﻿using DMSF.Contracts.Param;
 using DMSF.Contracts.Result;
+using DMSN.Common.BaseResult;
 using System.Threading.Tasks;
 
 namespace DMSF.Contracts

@@ -1,9 +1,4 @@
-﻿using DMSF.Common.BaseParam;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DMSN.Common.BaseParam;
 
 namespace DMSF.Contracts.Param
 {

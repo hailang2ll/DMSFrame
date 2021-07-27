@@ -1,9 +1,9 @@
-﻿using DMSF.Common.BaseResult;
-using DMSF.Contracts;
+﻿using DMSF.Contracts;
 using DMSF.Contracts.Param;
 using DMSF.Contracts.Result;
 using DMSF.Entity;
 using DMSFrame;
+using DMSN.Common.BaseResult;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
