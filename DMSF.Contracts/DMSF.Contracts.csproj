@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DMSN.Common" Version="3.2.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\DMSF.Entity\DMSF.Entity.csproj" />
   </ItemGroup>
 

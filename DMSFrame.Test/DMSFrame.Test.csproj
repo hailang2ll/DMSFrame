@@ -5,15 +5,6 @@
 	  <TargetFrameworks>net45;net46;net461</TargetFrameworks>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="DMSFrame" Version="1.2.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
-    <PackageReference Include="DMSB.Common">
-      <Version>3.1.1</Version>
-    </PackageReference>
-  </ItemGroup>
 
 </Project>
