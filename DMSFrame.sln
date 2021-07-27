@@ -13,13 +13,26 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.Service", "02.Service", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{E0FA1E50-A129-4138-9FD7-A31CCB95EDFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMSF.Entity", "DMSF.Entity\DMSF.Entity.csproj", "{4738E952-9670-4B39-AD07-C224504708F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DMSF.Entity", "DMSF.Entity\DMSF.Entity.csproj", "{4738E952-9670-4B39-AD07-C224504708F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMSF.Contracts", "DMSF.Contracts\DMSF.Contracts.csproj", "{1AF32A9D-5514-4C61-B839-FBF1B1DB0F64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DMSF.Contracts", "DMSF.Contracts\DMSF.Contracts.csproj", "{1AF32A9D-5514-4C61-B839-FBF1B1DB0F64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMSF.Service", "DMSF.Service\DMSF.Service.csproj", "{4FA9115B-2B90-43B0-8A45-F75CF291340A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DMSF.Service", "DMSF.Service\DMSF.Service.csproj", "{4FA9115B-2B90-43B0-8A45-F75CF291340A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMSFrame.API", "DMSFrame.API\DMSFrame.API.csproj", "{3EE6D288-31EC-418E-B0B6-90B71388AD77}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00.CodeTools", "00.CodeTools", "{35B828A0-5DEF-4D0D-9FFD-A7A5BC1DC315}"
+	ProjectSection(SolutionItems) = preProject
+		CodeTools\CSTJR.BizLogc.New.cst = CodeTools\CSTJR.BizLogc.New.cst
+		CodeTools\CSTJR.BizLogic.cst = CodeTools\CSTJR.BizLogic.cst
+		CodeTools\CSTJR.Entity.cst = CodeTools\CSTJR.Entity.cst
+		CodeTools\CSTJR.EntityGenerate.cst = CodeTools\CSTJR.EntityGenerate.cst
+		CodeTools\CSTJR.ProcEntity.cst = CodeTools\CSTJR.ProcEntity.cst
+		CodeTools\CSTJR.View.cst = CodeTools\CSTJR.View.cst
+		CodeTools\CSTJRGen.inc = CodeTools\CSTJRGen.inc
+		CodeTools\CSTJRMySql.Entity.cst = CodeTools\CSTJRMySql.Entity.cst
+		CodeTools\CustomTable.cst = CodeTools\CustomTable.cst
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
