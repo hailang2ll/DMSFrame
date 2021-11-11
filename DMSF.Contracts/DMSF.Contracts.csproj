@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net46;net461</TargetFrameworks>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DMSF.Entity\DMSF.Entity.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\DMSF.Entity\DMSF.Entity.csproj" />
+	</ItemGroup>
 
 </Project>

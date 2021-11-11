@@ -1,15 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net46;net461</TargetFrameworks>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="DMSN.Common" Version="3.6.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="DMSN.Common" Version="3.6.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DMSFrame\DMSFrame.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\DMSFrame\DMSFrame.csproj" />
+	</ItemGroup>
 
 </Project>
