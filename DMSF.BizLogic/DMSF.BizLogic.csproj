@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DMSF.Contracts\DMSF.Contracts.csproj" />
+    <ProjectReference Include="..\DMSFrame.WebService\DMSFrame.WebService.csproj" />
+    <ProjectReference Include="..\DMSFrame\DMSFrame.csproj" />
+  </ItemGroup>
+
+</Project>

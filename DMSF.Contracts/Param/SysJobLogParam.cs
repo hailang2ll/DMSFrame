@@ -7,7 +7,7 @@ namespace DMSF.Contracts.Param
         /// <summary>
         /// 工作类型
         /// </summary>
-        public int JobLogType { get; set; }
+        public int? JobLogType { get; set; }
         /// <summary>
         /// 任务消息
         /// </summary>
@@ -30,7 +30,7 @@ namespace DMSF.Contracts.Param
         /// <summary>
         /// 工作类型
         /// </summary>
-        public int JobLogType { get; set; }
+        public int? JobLogType { get; set; }
         /// <summary>
         /// 任务消息
         /// </summary>
