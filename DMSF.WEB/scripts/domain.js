@@ -1,5 +1,5 @@
 ﻿var hostName = location.hostname,
-DOMAIN = hostName.slice(parseInt(hostName.lastIndexOf(".") - 5));//trydou.com
+DOMAIN = hostName.slice(parseInt(hostName.lastIndexOf(".") - 5));
 var G = G || {};
 G.DOMAIN = {
     WWW_WDBUY_COM: 'www.' + DOMAIN,

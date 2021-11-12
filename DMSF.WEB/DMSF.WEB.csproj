@@ -79,7 +79,6 @@
     <Content Include="scripts\common\tab.js" />
     <Content Include="scripts\common\table.js" />
     <Content Include="scripts\common\thickbox.js" />
-    <Content Include="scripts\cos-js-sdk-v5.min.js" />
     <Content Include="scripts\datePicker\calendar.js" />
     <Content Include="scripts\datePicker\config.js" />
     <Content Include="scripts\datePicker\lang\en.js" />
