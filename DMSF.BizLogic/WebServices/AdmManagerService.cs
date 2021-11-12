@@ -43,7 +43,7 @@ namespace DMSF.BizLogic.WebServices
                 Name = param.Name,
                 Message = param.Message,
             };
-            tsEntity.AddTS(entity);
+            tsEntity.AddTSIndentity(entity);
 
             //单个新增
             int intflag = DMST.Create<Sys_JobLog>().InsertIdentity(entity);
@@ -52,12 +52,13 @@ namespace DMSF.BizLogic.WebServices
             Sys_JobLog update = new Sys_JobLog()
             {
                 Name = param.Name,
-                Message = param.Message,
+                Message = param.Message, 
             };
-            tsEntity.EditTS(update, q => q.JobLogID == 1);
+            tsEntity.AddTSIndentity(update);
 
             string errMsg = "";
-            if (new DMSTransactionScopeHandler().Update(tsEntity, ref errMsg))
+            List<int> resultValues = new List<int>();
+            if (new DMSTransactionScopeHandler().Update(tsEntity, ref resultValues, ref errMsg))
             {
                 result.errno = 0;
                 result.errmsg = "操作成功";
@@ -158,7 +159,7 @@ namespace DMSF.BizLogic.WebServices
             {
                 result.errno = 1;
                 result.errmsg = "参数错误";
-                return ;
+                return;
             }
 
             Sys_JobLog entity = new Sys_JobLog()

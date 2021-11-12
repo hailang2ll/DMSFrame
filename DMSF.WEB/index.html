@@ -28,9 +28,9 @@
                 Name: "我是任务名称",
                 TaskLogType: 1
             };
-            //G.util.jsonpost({ mod: "AdmManager", act: "AddSysJobLog", param: entity }, function (res) {
-            //    console.log(res);
-            //});
+            G.util.jsonpost({ mod: "AdmManager", act: "AddSysJobLog", param: entity }, function (res) {
+                console.log(res);
+            });
 
 
             var searchParam = {
@@ -45,13 +45,13 @@
             //});
 
 
-            G.util.jsonpost({ mod: "AdmManager", act: "GetSysJobLog", jobLogID: 67074 }, function (res) {
-                if (res.errno == 0) {
-                    console.log(res);
-                } else {
-                    alert(res.errmsg);
-                }
-            });
+            //G.util.jsonpost({ mod: "AdmManager", act: "GetSysJobLog", jobLogID: 67074 }, function (res) {
+            //    if (res.errno == 0) {
+            //        console.log(res);
+            //    } else {
+            //        alert(res.errmsg);
+            //    }
+            //});
 
 
 
