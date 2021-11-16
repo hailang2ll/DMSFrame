@@ -14,6 +14,7 @@
 </head>
 <body>
     gfdgfdg
+    <input id="btnadd" type="button" value="新增" />
     <input id="btnupdate" type="button" value="修改" />
     <input id="btndel" type="button" value="删除" />
 </body>
@@ -78,6 +79,17 @@
             //});
         },
         bindEvent: function () {
+            $("#btnadd").click(function () {
+                var entity = {
+                    JobLogID: 1,
+                    Message: "我是修改信息",
+                    Name: "我是任务名称"
+                };
+                G.util.jsonpost({ mod: "AdmManager", act: "BatchAddSysJobLog", param: entity }, function (res) {
+                    console.log(res);
+                });
+            })
+
             $("#btnupdate").click(function () {
                 var entity = {
                     JobLogID: 1,

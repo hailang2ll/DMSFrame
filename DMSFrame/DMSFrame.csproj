@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>net45;net46;net461;net472</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.2.2</Version>
+    <Version>2.3.2</Version>
     <Authors>dylan,hailang</Authors>
     <Company>dylan,hailang</Company>
     <Description>自研的一种ORM框架，DMS框架是采用LINQ的写法的一种数据库访问框架，此框架到目前为止运用的8年，都在各大的项目、各大公司运用过，非常的稳定；写法也是非常简单（用过的人基本会觉得是所有ORM框架中最方便的），只要SQL支持的DMS基本都支持，同时支持分库分表操作，支持mysql与mssql数据库，目前只支持.netfx</Description>

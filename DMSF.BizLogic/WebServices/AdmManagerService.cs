@@ -71,6 +71,93 @@ namespace DMSF.BizLogic.WebServices
                 return;
             }
         }
+
+        public void BatchAddSysJobLog(BaseResult result, AddJobLogParam param)
+        {
+            if (param == null || string.IsNullOrEmpty(param.Name)
+                || string.IsNullOrEmpty(param.Message))
+            {
+                result.errno = 1;
+                result.errmsg = "参数错误";
+                return;
+            }
+
+            DMSTransactionScopeBulkCopyEntity tsEntity = new DMSTransactionScopeBulkCopyEntity();
+
+            List<Sys_JobLog> list = new List<Sys_JobLog>();
+            Sys_JobLog entity1 = new Sys_JobLog()
+            {
+                JobLogType = 1,
+                ServerIP = "",
+                TaskLogType = 1,
+                CreateTime = DateTime.Now,
+                Name = param.Name,
+                Message = param.Message,
+            };
+
+
+            list.Add(entity1);
+            entity1.Name = "我是第二条";
+            list.Add(entity1);
+
+            tsEntity.AddTS<Sys_JobLog>(list);
+
+            var list2 = new List<Sys_JobLog>();
+            Sys_JobLog log1 = new Sys_JobLog()
+            {
+                Name = param.Name,
+                Message = param.Message,
+                CreateTime = DateTime.Now,
+            };
+            list2.Add(log1);
+            list2.Add(log1);
+
+            tsEntity.AddTS<Sys_JobLog>(list2);
+
+
+
+
+            //DMST.Create<Sys_JobLog>().BulkCopy(list, q => "sys_001");
+
+            //DMSTransactionScopeEntity tsEntity = new DMSTransactionScopeEntity();
+            ////新增实体
+            //Sys_JobLog entity = new Sys_JobLog()
+            //{
+            //    JobLogType = 1,
+            //    ServerIP = "",
+            //    TaskLogType = 1,
+            //    CreateTime = DateTime.Now,
+            //    Name = param.Name,
+            //    Message = param.Message,
+            //};
+            //tsEntity.AddTSIndentity(entity);
+
+            ////单个新增
+            //int intflag = DMST.Create<Sys_JobLog>().InsertIdentity(entity);
+
+            ////修改实体
+            //Sys_JobLog update = new Sys_JobLog()
+            //{
+            //    Name = param.Name,
+            //    Message = param.Message,
+            //};
+            //tsEntity.AddTSIndentity(update);
+
+            string errMsg = "";
+            List<int> resultValues = new List<int>();
+            if (new DMSTransactionScopeHandler().Update(tsEntity, ref resultValues, ref errMsg))
+            {
+                result.errno = 0;
+                result.errmsg = "操作成功";
+                return;
+            }
+            else
+            {
+                result.errno = 1;
+                result.errmsg = "操作失败";
+                return;
+            }
+        }
         /// <summary>
         /// 获取列表分布
         /// </summary>
@@ -167,6 +254,7 @@ namespace DMSF.BizLogic.WebServices
             //    Name = param.Name,
             //    Message = param.Message,
             //};
+
 
             LIST_BASIC bASIC = new LIST_BASIC()
             {
