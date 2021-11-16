@@ -13,10 +13,17 @@
     <script src="/scripts/jquery.ajaxRequest.js" type="text/javascript"></script>-->
 </head>
 <body>
-    gfdgfdg
+    <form id="upload" enctype="multipart/form-data" method="post" action="/api/Listv2/AddIndividualList/?fmt=4">
+        <input name="file" type="file" id="shangchuaninput">
+        <input name="param" type="text" value="{'eType':1000}" id="shangchuaninput">
+    </form>
+    <input id="butupload1" type="button" value="第1种上传" />
+    <input id="butupload2" type="button" value="第2种上传" />
+
     <input id="btnadd" type="button" value="新增" />
     <input id="btnupdate" type="button" value="修改" />
     <input id="btndel" type="button" value="删除" />
+    <input id="btnsearch" type="button" value="查询" />
 </body>
 </html>
 <script type="text/javascript">
@@ -26,40 +33,6 @@
             this.bindEvent();
         },
         bindData: function () {
-            var entity = {
-                JobLogType: 1,
-                Message: "我是消息01",
-                Name: "我是任务名称",
-                TaskLogType: 1
-            };
-            G.util.jsonpost({ mod: "AdmManager", act: "AddSysJobLog", param: entity }, function (res) {
-                console.log(res);
-            });
-
-
-            var searchParam = {
-                JobLogType: 1
-            };
-            //G.util.jsonpost({ mod: "AdmManager", act: "GetSysJobLogList", param: searchParam }, function (res) {
-            //    if (res.errno == 0) {
-            //        console.log(res);
-            //    } else {
-            //        alert(res.errmsg);
-            //    }
-            //});
-
-
-            //G.util.jsonpost({ mod: "AdmManager", act: "GetSysJobLog", jobLogID: 67074 }, function (res) {
-            //    if (res.errno == 0) {
-            //        console.log(res);
-            //    } else {
-            //        alert(res.errmsg);
-            //    }
-            //});
-
-
-
-
             //$.ajax({
             //    url: "/api/Test/getUserList/?fmt=2",
             //    dataType: "json",
@@ -79,6 +52,26 @@
             //});
         },
         bindEvent: function () {
+            $("#butupload1").click(function () {
+                var formData = new FormData($("#upload")[0]);
+                //formData.append('eType', 100);
+                jQuery(upload).submit();
+
+            });
+
+            $("#butupload2").click(function () {
+                G.util.jsonpost({
+                    mod: "Listv2", act: "AddIndividualList"
+                }, function (res) {
+                    if (res.errno == 0) {
+                        console.log(res);
+                    } else {
+                        alert(res.errmsg);
+                    }
+                });
+
+            });
+
             $("#btnadd").click(function () {
                 var entity = {
                     JobLogID: 1,
@@ -99,6 +92,28 @@
                 G.util.jsonpost({ mod: "AdmManager", act: "UpdateSysJobLog", param: entity }, function (res) {
                     console.log(res);
                 });
+            })
+
+            $("#btnsearch").click(function () {
+                G.util.jsonpost({ mod: "AdmManager", act: "GetSysJobLog", jobLogID: 67074 }, function (res) {
+                    if (res.errno == 0) {
+                        console.log(res);
+                    } else {
+                        alert(res.errmsg);
+                    }
+                });
+
+
+                var searchParam = {
+                    JobLogType: 1
+                };
+                //G.util.jsonpost({ mod: "AdmManager", act: "GetSysJobLogList", param: searchParam }, function (res) {
+                //    if (res.errno == 0) {
+                //        console.log(res);
+                //    } else {
+                //        alert(res.errmsg);
+                //    }
+                //});
             })
         }
     };
