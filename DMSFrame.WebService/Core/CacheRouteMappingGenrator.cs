@@ -97,7 +97,7 @@ namespace DMSFrame.WebService
                     index = 0;
                     foreach (var item in parameters)
                     {
-                        if (item == null) { continue; }
+                        if (item == null) { index++; continue; }
                         if (item.GetType() == typeof(BaseResult))
                         {
                             resultData.Result = (BaseResult)item;

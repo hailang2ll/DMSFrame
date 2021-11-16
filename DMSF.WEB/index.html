@@ -14,12 +14,15 @@
 </head>
 <body>
     gfdgfdg
+    <input id="btnupdate" type="button" value="修改" />
+    <input id="btndel" type="button" value="删除" />
 </body>
 </html>
 <script type="text/javascript">
     var pager = {
         init: function () {
-            this.bindData();
+            //this.bindData();
+            this.bindEvent();
         },
         bindData: function () {
             var entity = {
@@ -73,6 +76,18 @@
             //    failure: function (resp, opts) {
             //    }
             //});
+        },
+        bindEvent: function () {
+            $("#btnupdate").click(function () {
+                var entity = {
+                    JobLogID: 1,
+                    Message: "我是修改信息",
+                    Name: "我是任务名称"
+                };
+                G.util.jsonpost({ mod: "AdmManager", act: "UpdateSysJobLog", param: entity }, function (res) {
+                    console.log(res);
+                });
+            })
         }
     };
     $(function () { pager.init(); })

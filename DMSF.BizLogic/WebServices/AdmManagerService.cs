@@ -52,7 +52,7 @@ namespace DMSF.BizLogic.WebServices
             Sys_JobLog update = new Sys_JobLog()
             {
                 Name = param.Name,
-                Message = param.Message, 
+                Message = param.Message,
             };
             tsEntity.AddTSIndentity(update);
 
@@ -150,37 +150,53 @@ namespace DMSF.BizLogic.WebServices
         /// </summary>
         /// <param name="jobLogID"></param>
         /// <returns></returns>
-        public void UpdateSysJobLog(BaseResult result, UpdateJobLogParam param)
+        public void UpdateSysJobLog(BaseResult result, int? individualID, int? basicID)
         {
-            if (param == null
-                || param.JobLogID <= 0
-                || string.IsNullOrEmpty(param.Name)
-                || string.IsNullOrEmpty(param.Message))
-            {
-                result.errno = 1;
-                result.errmsg = "参数错误";
-                return;
-            }
+            //if (param == null
+            //    || param.JobLogID <= 0
+            //    || string.IsNullOrEmpty(param.Name)
+            //    || string.IsNullOrEmpty(param.Message))
+            //{
+            //    result.errno = 1;
+            //    result.errmsg = "参数错误";
+            //    return;
+            //}
 
-            Sys_JobLog entity = new Sys_JobLog()
+            //Sys_JobLog entity = new Sys_JobLog()
+            //{
+            //    Name = param.Name,
+            //    Message = param.Message,
+            //};
+
+            LIST_BASIC bASIC = new LIST_BASIC()
             {
-                Name = param.Name,
-                Message = param.Message,
+                IFUSED = 0,
             };
 
-            int intFlag = DMST.Create<Sys_JobLog>().Edit(entity, p => p.JobLogID == param.JobLogID);
-            if (intFlag > 0)
-            {
-                result.errno = 0;
-                result.errmsg = "手机号码更新成功！";
-                return;
-            }
-            else
+            DMSTransactionScopeEntity tsEntity = new DMSTransactionScopeEntity();
+            //tsEntity.EditTS<Sys_JobLog>(entity, p => p.JobLogID == param.JobLogID);
+            tsEntity.EditTS<LIST_BASIC>(bASIC, p => p.ID == 52676);
+            string errMsg = "";
+            if (!new DMSTransactionScopeHandler().Update(tsEntity, ref errMsg))
             {
                 result.errno = 1;
-                result.errmsg = "手机号码更新失败！";
+                result.errmsg = "修改失败，" + errMsg;
                 return;
             }
+
+            //int intFlag = DMST.Create<Sys_JobLog>().Edit(entity, p => p.JobLogID == param.JobLogID);
+            //if (intFlag > 0)
+            //{
+            //    result.errno = 0;
+            //    result.errmsg = "手机号码更新成功！";
+            //    return;
+            //}
+            //else
+            //{
+            //    result.errno = 1;
+            //    result.errmsg = "手机号码更新失败！";
+            //    return;
+            //}
         }
     }
 }

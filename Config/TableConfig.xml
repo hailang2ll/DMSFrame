@@ -9,12 +9,12 @@
     <ConnectString>Integrated Security=False;server=192.168.31.200;database=trydou_sys;User ID=devuser;Password=yxw-88888;Connect Timeout=30</ConnectString>
   </TableConfiguration>
   <TableConfiguration>
-    <Name>WALIUJR_MEMBER</Name>
+    <Name>EVAL_DB</Name>
     <SqlType>MsSql</SqlType>
     <WithLock>true</WithLock>
     <Author>dbo</Author>
     <CacheDependency>true</CacheDependency>
-    <ConnectString>Integrated Security=False;server=192.168.0.100;database=WALIUJR_MEMBER;User ID=devuser;Password=cst-88888;Connect Timeout=30</ConnectString>
+    <ConnectString>Integrated Security=False;server=192.168.31.200;database=EVAL_DB;User ID=devuser;Password=yxw-88888;Connect Timeout=30</ConnectString>
   </TableConfiguration>
   <TableConfiguration>
     <Name>WALIUJR_PRODUCT</Name>
