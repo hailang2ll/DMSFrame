@@ -7,15 +7,15 @@
     <script src="/scripts/enumStatic.js" type="text/javascript"></script>-->
     <script src="/scripts/global.js" type="text/javascript"></script>
     <script src="/scripts/domain.js" type="text/javascript"></script>
-    <script src="/scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://mat1.gtimg.com/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="/scripts/jquery.common.js" type="text/javascript"></script>
     <!--<script src="/scripts/jquery.tmpl.min.js" type="text/javascript"></script>
     <script src="/scripts/jquery.ajaxRequest.js" type="text/javascript"></script>-->
 </head>
 <body>
-    <form id="upload" enctype="multipart/form-data" method="post" action="/api/Listv2/AddIndividualList/?fmt=4">
+    <form id="upload" enctype="multipart/form-data" method="post" action="/api/AdmManager/UploadSysJobLog/?fmt=2">
         <input name="file" type="file" id="shangchuaninput">
-        <input name="param" type="text" value="{'eType':1000}" id="shangchuaninput">
+        <input name="param" type="text" value="{'JobLogType':1000}" id="shangchuaninput">
     </form>
     <input id="butupload1" type="button" value="第1种上传" />
     <input id="butupload2" type="button" value="第2种上传" />
@@ -54,20 +54,35 @@
         bindEvent: function () {
             $("#butupload1").click(function () {
                 var formData = new FormData($("#upload")[0]);
-                //formData.append('eType', 100);
+                //formData.append('Message', 100);
                 jQuery(upload).submit();
-
             });
 
             $("#butupload2").click(function () {
-                G.util.jsonpost({
-                    mod: "Listv2", act: "AddIndividualList"
-                }, function (res) {
-                    if (res.errno == 0) {
-                        console.log(res);
-                    } else {
-                        alert(res.errmsg);
-                    }
+                let formData = new FormData();
+                formData.append("file", $("#upload [name=file]")[0].files[0]);
+                formData.append(
+                    "param",
+                    JSON.stringify({
+                        JobLogType: 200,
+                        Message: "我是消息",
+                        Name: "我是名称",
+                        TaskLogType: 34,
+                    })
+                );
+                console.log(document.querySelector("#upload [name=file]").files[0]);
+                $.ajax({
+                    url: "/api/AdmManager/UploadSysJobLog/?fmt=2",
+                    method: "post",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success(response) {
+                        console.log(JSON.parse(response));
+                    },
+                    error(err) {
+                        console.error(err);
+                    },
                 });
 
             });

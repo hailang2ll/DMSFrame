@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DMS.Excel" Version="2.2.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DMSF.Contracts\DMSF.Contracts.csproj" />
     <ProjectReference Include="..\DMSFrame.WebService\DMSFrame.WebService.csproj" />
     <ProjectReference Include="..\DMSFrame\DMSFrame.csproj" />

@@ -1,4 +1,5 @@
-﻿using DMSF.Contracts;
+﻿using DMS.Excel;
+using DMSF.Contracts;
 using DMSF.Contracts.Param;
 using DMSF.Contracts.Result;
 using DMSF.Entity;
@@ -9,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace DMSF.BizLogic.WebServices
 {
@@ -285,6 +287,28 @@ namespace DMSF.BizLogic.WebServices
             //    result.errmsg = "手机号码更新失败！";
             //    return;
             //}
+        }
+
+        /// <summary>
+        /// 上传
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="param"></param>
+        public void UploadSysJobLog(BaseResult result, AddJobLogParam param)
+        {
+            HttpFileCollection fileList = HttpContext.Current.Request.Files;
+            // 判断是否有上传的文件
+            if (fileList == null || fileList.Count <= 0)
+            {
+                result.errno = 1;
+                result.errmsg = "未能接收到上传的文件";
+                return;
+            }
+            var file = fileList[0];
+            var stream = file.InputStream;
+            byte[] byteData = DMSN.Common.Utility.UtilHelper.StreamToBytes(stream);
+            var sheetNameList = new ExcelImporter().GetSheetNameList(stream);
+
         }
     }
 }
