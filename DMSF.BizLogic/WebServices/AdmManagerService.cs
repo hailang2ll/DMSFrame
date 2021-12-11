@@ -1,5 +1,4 @@
-﻿using DMS.Excel;
-using DMSF.Contracts.Param;
+﻿using DMSF.Contracts.Param;
 using DMSF.Contracts.Result;
 using DMSF.Entity;
 using DMSFrame;
@@ -182,7 +181,7 @@ namespace DMSF.BizLogic.WebServices
             ConditionResult<JobLogResult> resultList = DMST.Create<Sys_JobLog>()
                    .Where(p => p.JobLogType == 1)
                    .OrderBy(p => p.OrderBy(p.CreateTime.Desc()))
-                   .Pager(param.PageIndex, param.PageSize)
+                   .Pager(param.pageIndex, param.pageSize)
                    .ToConditionResult<JobLogResult>();
 
             return resultList;
@@ -303,8 +302,8 @@ namespace DMSF.BizLogic.WebServices
             }
             var file = fileList[0];
             var stream = file.InputStream;
-            byte[] byteData = DMSN.Common.Utility.UtilHelper.StreamToBytes(stream);
-            var sheetNameList = new ExcelImporter().GetSheetNameList(stream);
+            byte[] byteData = DMS.Commonfx.Utility.UtilHelper.StreamToBytes(stream);
+            var sheetNameList = new DMS.Excel.ExcelImporter().GetSheetNameList(stream);
 
         }
     }

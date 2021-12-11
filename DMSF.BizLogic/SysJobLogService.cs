@@ -1,9 +1,9 @@
-﻿using DMSF.Contracts;
+﻿using DMS.Commonfx.Model.Result;
+using DMSF.Contracts;
 using DMSF.Contracts.Param;
 using DMSF.Contracts.Result;
 using DMSF.Entity;
 using DMSFrame;
-using DMSN.Common.BaseResult;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -75,11 +75,11 @@ namespace DMSF.BizLogic
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
-        public Task<ResponsePageResult<JobLogResult>> GetSysJobLogList(SearchJobLogParam param)
+        public Task<ResponseResult<PageModel<JobLogResult>>> GetSysJobLogList(SearchJobLogParam param)
         {
-            ResponsePageResult<JobLogResult> result = new ResponsePageResult<JobLogResult>()
+            ResponseResult<PageModel<JobLogResult>> result = new ResponseResult<PageModel<JobLogResult>>()
             {
-                data = new DataResultList<JobLogResult>(),
+                data = new PageModel<JobLogResult>()
             };
             if (param == null)
             {
@@ -87,16 +87,16 @@ namespace DMSF.BizLogic
                 result.errmsg = "参数不合法";
                 return Task.FromResult(result);
             }
-            ConditionResult<JobLogResult> resultList =DMST.Create<Sys_JobLog>()
+            ConditionResult<JobLogResult> resultList = DMST.Create<Sys_JobLog>()
                    .Where(p => p.JobLogType == 1)
                    .OrderBy(p => p.OrderBy(p.CreateTime.Desc()))
-                   .Pager(param.PageIndex, param.PageSize)
+                   .Pager(param.pageIndex, param.pageSize)
                    .ToConditionResult<JobLogResult>();
 
-            result.data.ResultList = resultList.ResultList;
-            result.data.PageIndex = resultList.PageIndex;
-            result.data.PageSize = resultList.PageSize;
-            result.data.TotalRecord = resultList.TotalRecord;
+            result.data.resultList = resultList.ResultList;
+            result.data.pageIndex = resultList.PageIndex;
+            result.data.pageSize = resultList.PageSize;
+            result.data.totalRecord = resultList.TotalRecord;
             return Task.FromResult(result);
         }
         /// <summary>

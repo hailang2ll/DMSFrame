@@ -1,7 +1,8 @@
-﻿using DMSFrame;
+﻿using DMS.Commonfx.Helper;
+using DMS.Commonfx.JsonHandler;
+using DMS.Commonfx.netfx;
+using DMSFrame;
 using DMSFrame.WebService;
-using DMSN.Common.JsonHandler;
-using DMSN.Common.netfx;
 using System;
 using System.Text;
 using System.Web;
@@ -77,7 +78,7 @@ namespace DMSF.Http
                 case 1:
                     //G.util.post请求模式
                     strScript.AppendLine("<script type=\"text/javascript\">");
-                    strScript.AppendLine("      document.domain = \"" + ConfigManageHelper.CookieDomain + "\";");
+                    strScript.AppendLine("      document.domain = \"" + ConfigHelper.GetCookieDomain + "\";");
                     strScript.AppendLine("      frameElement.callback(" + ReplaceScriptTag(JsonSerializerExtensions.SerializeObject(result)) + " );");
                     strScript.AppendLine("</script>");
                     break;
@@ -108,9 +109,9 @@ namespace DMSF.Http
         {
             if (context.Request == null
                 || context.Request.UrlReferrer == null
-                || context.Request.UrlReferrer.Host.IndexOf(ConfigManageHelper.CookieDomain) == -1)
+                || context.Request.UrlReferrer.Host.IndexOf(ConfigHelper.GetCookieDomain) == -1)
             {
-                JsonResult result = new JsonResult() { errno = 505, errmsg = "ERR:非法服务，版权所有" + ConfigManageHelper.CookieDomain, data = null };
+                JsonResult result = new JsonResult() { errno = 505, errmsg = "ERR:非法服务，版权所有" + ConfigHelper.GetCookieDomain, data = null };
                 WriterFormater(result);
                 return false;
             }

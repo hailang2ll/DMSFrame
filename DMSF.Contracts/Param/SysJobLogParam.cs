@@ -1,4 +1,4 @@
-﻿using DMSN.Common.BaseParam;
+﻿using DMS.Commonfx.Model.Param;
 
 namespace DMSF.Contracts.Param
 {

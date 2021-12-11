@@ -5,7 +5,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DMSN.Common" Version="3.6.0" />
+	  <PackageReference Include="DMS.Commonfx" Version="3.6.4.2" />
 	</ItemGroup>
 
 	<ItemGroup>

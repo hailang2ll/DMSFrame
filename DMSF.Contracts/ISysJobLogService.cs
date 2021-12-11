@@ -1,6 +1,6 @@
-﻿using DMSF.Contracts.Param;
+﻿using DMS.Commonfx.Model.Result;
+using DMSF.Contracts.Param;
 using DMSF.Contracts.Result;
-using DMSN.Common.BaseResult;
 using System.Threading.Tasks;
 
 namespace DMSF.Contracts
@@ -21,7 +21,7 @@ namespace DMSF.Contracts
         /// </summary>
         /// <param name="MemberName"></param>
         /// <returns></returns>
-        Task<ResponsePageResult<JobLogResult>> GetSysJobLogList(SearchJobLogParam param);
+        Task<ResponseResult<PageModel<JobLogResult>>> GetSysJobLogList(SearchJobLogParam param);
         /// <summary>
         /// 日志ID
         /// </summary>
