@@ -32,7 +32,7 @@ namespace <%= Namespace.Trim()==""?"CSTJR.Entity.DBEntity":Namespace %>
     /// 
 	/// </summary>
 	[Serializable]
-	[TableMapping(Name = "<%= GetClassName(this.SourceTable) %>", PrimaryKey = "<%= GetPrimaryKeyName(SourceTable) %>", DMSDbType = DMSDbType.Mysql, ConfigName = "Openfire_Logs")]
+	[TableMapping(Name = "<%= GetClassName(this.SourceTable) %>", PrimaryKey = "<%= GetPrimaryKeyName(SourceTable) %>", DMSDbType = DMSDbType.Mysql, ConfigName = "db_cms01")]
 	public class <%= GetClassName(SourceTable) %> : BaseEntity
 	{
 		#region Private Properties
