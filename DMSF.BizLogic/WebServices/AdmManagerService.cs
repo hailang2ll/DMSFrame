@@ -1,5 +1,4 @@
 ﻿using DMS.Excel;
-using DMSF.Contracts;
 using DMSF.Contracts.Param;
 using DMSF.Contracts.Result;
 using DMSF.Entity;
@@ -8,7 +7,6 @@ using DMSFrame.WebService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -33,7 +31,6 @@ namespace DMSF.BizLogic.WebServices
                 result.errmsg = "参数错误";
                 return;
             }
-
             DMSTransactionScopeEntity tsEntity = new DMSTransactionScopeEntity();
             //新增实体
             Sys_JobLog entity = new Sys_JobLog()
