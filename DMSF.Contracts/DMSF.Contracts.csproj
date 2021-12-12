@@ -5,7 +5,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\DMSF.Entity\DMSF.Entity.csproj" />
+	  <ProjectReference Include="..\DMS.Netfx\DMS.Commonfx\DMS.Commonfx.csproj" />
 	</ItemGroup>
 
 </Project>

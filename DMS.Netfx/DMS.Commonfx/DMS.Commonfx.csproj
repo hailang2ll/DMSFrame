@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFrameworks>net45;net46;net461;net472</TargetFrameworks>
+	  <Version>3.6.4.2</Version>
+	  <AssemblyVersion>3.6.4.2</AssemblyVersion>
+	  <FileVersion>3.6.4.2</FileVersion>
+	  <Copyright>Copyright@2018-2022 Dylan</Copyright>
+	  <Description>一个基于DMS中间件的基础框架</Description>
+	  <Authors>Dylan,hailang</Authors>
+	  <Company>Dylan,hailang</Company>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+	  <AssemblyName>DMS.Commonfx</AssemblyName>
+	  <PackageId>DMS.Commonfx</PackageId>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+		<PackageReference Include="System.Dynamic.Runtime" Version="4.3.0" />
+		<Reference Include="System.Core" />
+		<Reference Include="System.Data" />
+		<Reference Include="System.Data.DataSetExtensions" />
+		<Reference Include="System.Net.Http" />
+		<Reference Include="System.Runtime.Serialization" />
+		<Reference Include="System.Web" />
+		<Reference Include="System.Web.Extensions" />
+		<Reference Include="System.Xml" />
+		<Reference Include="System.Xml.Linq" />
+		<Reference Include="System.Configuration" />
+	</ItemGroup>
+	
+  <ItemGroup>
+    <Compile Update="DMSResource.Designer.cs">
+      <DependentUpon>DMSResource.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="DMSResource.resx">
+      <LastGenOutput>DMSResource.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+		<Exec Command="If $(ConfigurationName) == Release (&#xD;&#xA;del $(ProjectDir)$(OutDir)..\*.nupkg /s/q&#xD;&#xA;exit 0&#xD;&#xA;)ELSE (echo &quot;Not Debug mode, no file del from nupkg&quot;)" />
+	</Target>
+</Project>

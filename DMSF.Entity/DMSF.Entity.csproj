@@ -9,7 +9,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\DMSFrame\DMSFrame.csproj" />
+	  <ProjectReference Include="..\DMS.Netfx\DMSFrame\DMSFrame.csproj" />
 	</ItemGroup>
 
 </Project>

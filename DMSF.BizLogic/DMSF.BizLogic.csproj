@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net46;net461</TargetFrameworks>
@@ -9,9 +9,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DMS.Netfx\DMS.Commonfx\DMS.Commonfx.csproj" />
+    <ProjectReference Include="..\DMS.Netfx\DMSFrame.WebService\DMSFrame.WebService.csproj" />
+    <ProjectReference Include="..\DMS.Netfx\DMSFrame\DMSFrame.csproj" />
     <ProjectReference Include="..\DMSF.Contracts\DMSF.Contracts.csproj" />
-    <ProjectReference Include="..\DMSFrame.WebService\DMSFrame.WebService.csproj" />
-    <ProjectReference Include="..\DMSFrame\DMSFrame.csproj" />
+    <ProjectReference Include="..\DMSF.Entity\DMSF.Entity.csproj" />
   </ItemGroup>
 
 </Project>
