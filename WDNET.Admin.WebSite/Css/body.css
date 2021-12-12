@@ -1,0 +1,29 @@
+﻿.b_row { width: 100%; height: 115px; margin-bottom: 20px; }
+.b_row .main_info { float: left; box-sizing: border-box; width: 25%; height: 115px; padding: 0 15px; }
+.b_row .main_info .content { box-sizing: border-box; width: 100%; height: 100%; background-color: #F5F8F9; border: 1px solid #A8D0F2; }
+.b_row .main_info .head { height: 39px; border-bottom: 1px solid #A8D0F2; padding: 0 10px; }
+.b_row .main_info .head h5 { font-weight: normal; font-size: 16px; line-height: 40px; color: #333; }
+.b_row .main_info .main { padding: 0 10px; height: 75px; }
+.b_row .main_info .main .ic { float: left; width: 40px; height: 40px; background: url("http://akveo.com/blur-admin-mint/assets/img/app/browsers/chrome.svg") no-repeat;background-size: contain; margin-top: 18px; margin-right: 10px; }
+.b_row .main_info .main .num { float: left; font-size: 30px; line-height: 75px; color: #000; }
+
+.b_chart { width: 100%; margin-bottom: 20px; }
+.b_chart .main_info { float: left; box-sizing: border-box; width: 50%; height: 400px; padding: 0 15px; }
+.b_chart .main_info .content { box-sizing: border-box; width: 100%; height: 100%; background-color: #F5F8F9; border: 1px solid #A8D0F2; }
+.b_chart .main_info .head { height: 39px; border-bottom: 1px solid #A8D0F2; padding: 0 10px; }
+.b_chart .main_info .head h5 { font-weight: normal; font-size: 16px; line-height: 40px; color: #333; }
+.b_chart .main_info .main { padding: 0 10px; min-height: 360px; }
+
+.b_table { width: 100%; margin-bottom: 20px; }
+.b_table .main_info { float: left; box-sizing: border-box; width: 50%; padding: 0 15px; }
+.b_table .main_info .content { box-sizing: border-box; width: 100%; height: 100%; background-color: #F5F8F9; border: 1px solid #A8D0F2; }
+.b_table .main_info .head { height: 39px; border-bottom: 1px solid #A8D0F2; padding: 0 10px; }
+.b_table .main_info .head h5 { float: left; font-weight: normal; font-size: 16px; line-height: 40px; color: #333; }
+.b_table .main_info .head .more { float: right; font-weight: normal; font-size: 14px; line-height: 40px; color: #666; }
+.b_table .main_info .head .more:hover { text-decoration: underline; }
+.b_table .main_info .main { padding: 0 10px; }
+.b_table .main_info .main table { width: 100%; border-collapse: collapse; }
+.b_table .main_info .main table tr { border-bottom: 1px solid #A8D0F2; }
+.b_table .main_info .main table tr:nth-last-child(1) { border-bottom: none; }
+.b_table .main_info .main table th { font-size: 14px; color: #333; padding: 30px 10px 8px; text-align: left; }
+.b_table .main_info .main table td { font-size: 14px; color: #333; padding: 8px 10px; text-align: left; }

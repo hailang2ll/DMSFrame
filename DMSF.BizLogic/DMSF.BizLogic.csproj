@@ -31,18 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DMS.Excel, Version=2.2.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DMS.Excel.2.2.5\lib\net461\DMS.Excel.dll</HintPath>
-    </Reference>
-    <Reference Include="DMSN.Common, Version=3.2.7.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DMSN.Common.3.2.7.4\lib\net461\DMSN.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="DynamicExpresso.Core, Version=2.8.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamicExpresso.Core.2.8.1\lib\net461\DynamicExpresso.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="EPPlus, Version=5.7.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPPlus.5.7.1\lib\net45\EPPlus.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>
@@ -71,11 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SysJobLogService.cs" />
-    <Compile Include="WebServices\AdmManagerService.cs" />
     <Compile Include="WebServices\Adm\AdmUserLoginService.cs" />
-    <Compile Include="WebServices\cms\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DMS.Netfx\DMS.Commonfx\DMS.Commonfx.csproj">
@@ -89,14 +75,6 @@
     <ProjectReference Include="..\DMS.Netfx\DMSFrame\DMSFrame.csproj">
       <Project>{33daf4dc-43dc-45cf-a7ff-507577183de0}</Project>
       <Name>DMSFrame</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DMSF.Contracts\DMSF.Contracts.csproj">
-      <Project>{9f2a13e2-13b4-4e97-be28-d75ffad93b5d}</Project>
-      <Name>DMSF.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DMSF.Entity\DMSF.Entity.csproj">
-      <Project>{d934a728-9715-4a92-b357-377c22e3967e}</Project>
-      <Name>DMSF.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

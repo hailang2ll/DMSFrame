@@ -1,7 +1,7 @@
 ﻿using DMS.Commonfx.Extensions;
 using System;
 
-namespace DMS.Commonfx.netfx
+namespace DMS.Commonfx.Helper
 {
 
     /// <summary>

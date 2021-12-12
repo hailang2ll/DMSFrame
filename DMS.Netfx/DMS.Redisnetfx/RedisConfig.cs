@@ -1,4 +1,4 @@
-﻿using DMS.Commonfx.netfx;
+﻿using DMS.Commonfx.Helper;
 using DMS.Commonfx.XmlHandler;
 using DMS.Log4netfx;
 using StackExchange.Redis;

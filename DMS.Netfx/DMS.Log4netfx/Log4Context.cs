@@ -1,4 +1,4 @@
-﻿using DMS.Commonfx.netfx;
+﻿using DMS.Commonfx.Helper;
 using log4net;
 using System;
 using System.IO;

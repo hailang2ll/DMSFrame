@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="zMasterSystemPage.master.cs" Inherits="WDNET.Admin.WebSite.zMasterSystemPage" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>揣兜管理后台,www.trydou.com</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="pragram" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate" />
+    <link href="/css/common/base.css" rel="stylesheet" type="text/css" />
+    <script src="/scripts/cos-js-sdk-v5.min.js?version=<%=System.DateTime.Now.ToString("yyyyMMddHH") %>" 
+        type="text/javascript"></script>
+    <script src="/scripts/enumClass.js?version=<%=System.DateTime.Now.ToString("yyyyMMddHH") %>"
+        type="text/javascript"></script>
+    <script src="/scripts/enumStatic.js?version=<%=System.DateTime.Now.ToString("yyyyMMddHH") %>"
+        type="text/javascript"></script>
+    <script src="/scripts/global.js?version=<%=System.DateTime.Now.ToString("yyyyMMddHH") %>"
+        type="text/javascript"></script>
+    <script src="/scripts/domain.js?version=<%=System.DateTime.Now.ToString("yyyyMMddHH") %>"
+        type="text/javascript"></script>
+    <script src="/scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="/scripts/jquery.common.js?version=<%=System.DateTime.Now.ToString("yyyyMMddHH") %>"
+        type="text/javascript"></script>
+    <script src="/scripts/jquery.tmpl.min.js" type="text/javascript"></script>
+    <script src="/scripts/jquery.ajaxRequest.js?version=<%=System.DateTime.Now.ToString("yyyyMMddHH") %>"
+        type="text/javascript"></script>
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" action="/">
+    </form>
+    <div class="g_nav">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderToolbar" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div id="g_box">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderList" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderBottom" runat="server">
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        DEBUG_MOD = true;
+    </script>
+    <script src="/scripts/debugger.js?version=<%=System.DateTime.Now.ToString("yyyyMMddHH") %>"
+        type="text/javascript"></script>
+    <div id="dialog_overlay">
+    </div>
+</body>
+</html>

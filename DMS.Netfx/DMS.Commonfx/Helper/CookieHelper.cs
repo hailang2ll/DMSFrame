@@ -1,5 +1,4 @@
 ﻿using DMS.Commonfx.Encrypt;
-using DMS.Commonfx.netfx;
 using System;
 using System.Configuration;
 using System.Web;
