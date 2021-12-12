@@ -359,9 +359,6 @@ namespace DMS.Commonfx.Helper
         }
         #endregion
 
-
-
-
         #region 获取图片信息
         /// <summary>
         /// 获取产品主图
@@ -376,5 +373,20 @@ namespace DMS.Commonfx.Helper
             return fullName;
         }
         #endregion
+        /// <summary>
+        /// 转换KB/MB
+        /// </summary>
+        /// <param name="size"></param>
+        /// <returns></returns>
+        public static String SizeFormatNum2String(long size)
+        {
+            double pers = 1048576; //1024*1024  
+            String s = "";
+            if (size > 1024 * 1024)
+                s = String.Format("{0:F}", (double)size / pers) + "M";
+            else
+                s = String.Format("{0:F}", (double)size / (1024)) + "KB";
+            return s;
+        }
     }
 }

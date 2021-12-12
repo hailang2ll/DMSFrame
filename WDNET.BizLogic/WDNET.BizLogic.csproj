@@ -42,10 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adm\Adm_DeptBLL.cs" />
+    <Compile Include="Adm\Adm_GroupBLL.cs" />
+    <Compile Include="Adm\Adm_RightsBLL.cs" />
+    <Compile Include="Adm\Adm_UserBLL.cs" />
+    <Compile Include="BaseBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebServiceFrameBase.cs" />
+    <Compile Include="WebServices\Adm\AdmManagerService.cs" />
     <Compile Include="WebServices\Adm\AdmUserLoginService.cs" />
-    <Compile Include="WebServices\Adm\AdmUserManager.cs" />
     <Compile Include="WebServices\Adm\OperationLogManager.cs" />
+    <Compile Include="WebServices\Adm\Sys_LogManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DMS.Netfx\DMS.Commonfx\DMS.Commonfx.csproj">

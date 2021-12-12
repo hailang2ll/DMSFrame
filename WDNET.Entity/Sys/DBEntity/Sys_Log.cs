@@ -12,7 +12,7 @@
 using System;
 using System.Collections.Generic;
 using DMSFrame;
-namespace DMSF.Entity.DBEntity
+namespace WDNET.Entity.DBEntity
 {
     /// <summary>
     /// 

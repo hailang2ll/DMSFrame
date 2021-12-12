@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Admin.Entity.Sys.ExtEntity
+namespace WDNET.Entity.Sys.ExtEntity
 {
 
 

@@ -175,7 +175,7 @@ namespace WDNET.BizLogic.WebServices
         {
             CertifyFlag = false;
             List<vw_Adm_Rights_User> groupList = new List<vw_Adm_Rights_User>();
-            List<GroupRightsList> resultList = AdmUserManager.GetRigthsListAll(userID, ref groupList);
+            List<GroupRightsList> resultList = new Adm_RightsBLL().GetRigthsListAll(userID, ref groupList);
             if (groupList.Count > 0)
                 CertifyFlag = true;
             WriteCertifyPool(groupList, userID);

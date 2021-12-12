@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Admin.Entity.ExtEntity
+namespace WDNET.Entity.ExtEntity
 {
     public class SysLogFileExt
     {
