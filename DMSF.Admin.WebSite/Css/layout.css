@@ -1,9 +1,0 @@
-﻿.baidumap { width:550px; height:400px; vertical-align:top; display:inline-block; *display:inline; *zoom:1;}
-.orgimg, .orgimg .uploadify, .orgimg .queue_view, .orgimg .uploadify-progress, .orgimg .cancel { vertical-align:top; display:inline-block; *display:inline; *zoom:1;}
-.orgimg .uploadify { padding:4px 0 10px;}
-.orgimg .cancel { margin:0 0 0 10px; font-size:14px; line-height:20px;}
-.orgimg .queue_view { padding:10px 0; }
-.orgimg .upload_btn { font-size:14px;}
-.orgimg .uploadify-queue-item { padding:0 20px;}
-.orgimg .uploadify-progress { width:200px; height:20px; background:#E6DDCF;}
-.orgimg .uploadify-progress .uploadify-progress-bar { width:0%; height:20px; background:#E25351;}
