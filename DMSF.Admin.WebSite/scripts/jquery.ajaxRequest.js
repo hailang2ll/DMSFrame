@@ -285,7 +285,7 @@ $.ajaxRequest = function (options) {
     var ajaxOptions = {
         requestConfigs: configs,
         requestParam: param,
-        url: '/api/' + configs.mod + '/' + configs.act + '/?fmt=2&localurl=' + window.location.href,
+        url: '/webapi/' + configs.mod + '/' + configs.act + '/?fmt=2&localurl=' + window.location.href,
         type: "post",
         dataType: "json",
         data: jsonData,

@@ -556,7 +556,7 @@ G.util.post = function (c, g, b) {
     }
 };
 G.util.jsonpost = function (m, f) {
-    return G.util.post("/api/" + m.mod + "/" + m.act + "/?fmt=1&r=" + Math.random() + "&debug=" + G.CONFIGS.DEBUG, m, f);
+    return G.util.post("/webapi/" + m.mod + "/" + m.act + "/?fmt=1&r=" + Math.random() + "&debug=" + G.CONFIGS.DEBUG, m, f);
 };
 
 /**

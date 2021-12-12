@@ -1021,7 +1021,7 @@ function BindFileUpload(wrapId, callback, notForm, siteName, limit) {
     if (BindFileUpload.Count == null) BindFileUpload.Count = 0;
     window["BindFileUpload_" + BindFileUpload.Count] = callback;
 
-    var uploadPath = 'http://upload.trydou.com/api/uploadcos?fmt=2&callback=BindFileUpload_' + BindFileUpload.Count;  
+    var uploadPath = 'http://upload.trydou.com/webapi/uploadcos?fmt=2&callback=BindFileUpload_' + BindFileUpload.Count;
 
     var html = "";
     siteName = siteName || "";

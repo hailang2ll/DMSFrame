@@ -1243,6 +1243,22 @@
       <Project>{18884aa8-dd3b-48b8-a7cc-8b737ff160ca}</Project>
       <Name>DMS.Redisnetfx</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DMS.Netfx\DMSFrame.WebService\DMSFrame.WebService.csproj">
+      <Project>{f33e3cca-210a-4464-9350-618d4f288054}</Project>
+      <Name>DMSFrame.WebService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DMS.Netfx\DMSFrame\DMSFrame.csproj">
+      <Project>{33daf4dc-43dc-45cf-a7ff-507577183de0}</Project>
+      <Name>DMSFrame</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DMSF.BizLogic\DMSF.BizLogic.csproj">
+      <Project>{16780aae-1355-4c0b-8faf-798ce53821fd}</Project>
+      <Name>DMSF.BizLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DMSF.Common\DMSF.Http\DMSF.Http.csproj">
+      <Project>{829304bd-016c-4bd5-a249-5aaab34e0f25}</Project>
+      <Name>DMSF.Http</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

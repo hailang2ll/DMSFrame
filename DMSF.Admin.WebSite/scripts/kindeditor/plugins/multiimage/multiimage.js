@@ -198,7 +198,7 @@ K.swfupload = function(element, options) {
 KindEditor.plugin('multiimage', function (K) {
 	var self = this, name = 'multiimage',
 		formatUploadUrl = K.undef(self.formatUploadUrl, true),
-        uploadJson = "http://upload.trydou.com/api/uploadcos?fmt=4",//K.undef(self.uploadJson, self.basePath + 'php/upload_json.php'),
+		uploadJson = "http://upload.trydou.com/webapi/uploadcos?fmt=4",//K.undef(self.uploadJson, self.basePath + 'php/upload_json.php'),
 		imgPath = self.pluginsPath + 'multiimage/images/',
 		imageSizeLimit = K.undef(self.imageSizeLimit, '1MB'),
 		imageFileTypes = K.undef(self.imageFileTypes, '*.jpg;*.gif;*.png'),

@@ -9,8 +9,8 @@ namespace DMSFrame.WebService
 
     internal class EnumAjaxParams
     {
-        public const string ROUTE_API = "api/";
-        public const string KEY_ROUTE_API = @"/api/(?<mod>[\w]+)/(?<action>[\w]+)";
+        public const string ROUTE_API = "webapi/";
+        public const string KEY_ROUTE_API = @"/webapi/(?<mod>[\w]+)/(?<action>[\w]+)";
         internal const string KEY_MODULE = "mod";
         internal const string KEY_ACTION = "act";
         internal const string KEY_RESPONSE_TYPE = "fmt";
