@@ -52,7 +52,7 @@ namespace WDNET.BizLogic
                 MemberName = sysParam.UserID.ToString(),
                 SubSysID = sysParam.SubSysID,
                 SubSysName = typeof(EnumSysSubSysIDType).GetDescription(sysParam.SubSysID),
-                IP = IPHelper.GetCurrentIp(),
+                IP = IPHelper.GetLocalV4IP(),
                 Url = RequestHelper.GetUrl(),
                 Thread = Process.GetCurrentProcess().Id.ToString(),
                 Level = sysParam.Level,

@@ -118,7 +118,7 @@ namespace WDNET.BizLogic.WebServices
                             Adm_User updateEntity = new Adm_User()
                             {
                                 LoginTimes = dataEntity.LoginTimes + 1,
-                                LastLoginIp = IPHelper.GetCurrentIp(),
+                                LastLoginIp = IPHelper.GetLocalV4IP(),
                                 LastLoginTime = DateTime.Now,
                             };
 

@@ -81,7 +81,7 @@ namespace WDNET.BizLogic
             };
             try
             {
-                entity.LocalIP = IPHelper.GetCurrentIp();
+                entity.LocalIP = IPHelper.GetLocalV4IP();
                 entity.LocalAddr = RequestHelper.GetHost();
                 entity.Url = RequestHelper.GetUrl();
 

@@ -13,100 +13,53 @@ namespace DMS.Commonfx.Helper
     public class IPHelper
     {
         /// <summary>
-        /// 获取DNSIP
+        /// 获取本机的IP（v4）,多个v4的ip只取第一个
+        /// 2013-01-07 更新获取ip，过滤掉特殊的ip 。哪些是特殊ip？
+        /// http://blog.csdn.net/realduke2000/article/details/4504549
         /// </summary>
-        /// <returns></returns>
-        public static string GetServerDnsIP()
+        /// <param name="isExternal">是否获取外网ip</param>
+        /// <returns>本机ip</returns>
+        public static string GetLocalV4IP(bool isExternal = true)
         {
-            IPAddress[] arrIPAddresses = Dns.GetHostAddresses(Dns.GetHostName());
-            foreach (IPAddress ip in arrIPAddresses)
+            string ip = string.Empty;
+            System.Net.IPHostEntry iph = System.Net.Dns.GetHostEntry(Environment.MachineName);
+            for (int i = 0; i < iph.AddressList.Length; i++)
             {
-                if (ip.AddressFamily.Equals(AddressFamily.InterNetwork))
+                if (iph.AddressList[i].AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
                 {
-                    return ip.ToString();
+                    if (isExternal)
+                    {
+                        if (!iph.AddressList[i].ToString().StartsWith("127.") && !iph.AddressList[i].ToString().StartsWith("0.0.") &&
+        !iph.AddressList[i].ToString().StartsWith("255.255.") && !iph.AddressList[i].ToString().StartsWith("224.0.") &&
+        !iph.AddressList[i].ToString().StartsWith("169.254.") && !iph.AddressList[i].ToString().StartsWith("10.") &&
+        !iph.AddressList[i].ToString().StartsWith("172.16.") && !iph.AddressList[i].ToString().StartsWith("172.31.") &&
+                            !iph.AddressList[i].ToString().StartsWith("192.168."))
+                        {
+                            ip = iph.AddressList[i].ToString();
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        if (!iph.AddressList[i].ToString().StartsWith("127.") && !iph.AddressList[i].ToString().StartsWith("0.0.") &&
+        !iph.AddressList[i].ToString().StartsWith("255.255.") && !iph.AddressList[i].ToString().StartsWith("224.0.") &&
+        !iph.AddressList[i].ToString().StartsWith("169.254.") && !iph.AddressList[i].ToString().StartsWith("10.") &&
+        !iph.AddressList[i].ToString().StartsWith("172.16.") && !iph.AddressList[i].ToString().StartsWith("172.31."))
+                        {
+                            ip = iph.AddressList[i].ToString();
+                            break;
+                        }
+                    }
                 }
             }
-            return string.Empty;
+            return ip;
         }
-
-        /// <summary>
-        /// 获取web客户端ip
-        /// </summary>
-        /// <returns></returns>
-//        [Obsolete("please use GetCurrentIp")]
-//        public static string GetWebClientIp()
-//        {
-//            string userIP = "0.0.0.0";
-//#if NET45 || NET46 || NET461 || NET472
-
-//            try
-//            {
-//                if (System.Web.HttpContext.Current == null
-//            || System.Web.HttpContext.Current.Request == null
-//            || System.Web.HttpContext.Current.Request.ServerVariables == null)
-//                    return userIP;
-//                string CustomerIP = "";
-//                //CDN加速后取到的IP simone 090805
-//                CustomerIP = System.Web.HttpContext.Current.Request.Headers["Cdn-Src-Ip"];
-//                if (!string.IsNullOrEmpty(CustomerIP))
-//                {
-//                    return CustomerIP;
-//                }
-//                CustomerIP = System.Web.HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-//                if (!String.IsNullOrEmpty(CustomerIP))
-//                    return CustomerIP;
-//                if (System.Web.HttpContext.Current.Request.ServerVariables["HTTP_VIA"] != null)
-//                {
-//                    CustomerIP = System.Web.HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-//                    if (CustomerIP == null)
-//                        CustomerIP = System.Web.HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
-//                }
-//                else
-//                {
-//                    CustomerIP = System.Web.HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
-//                }
-
-
-//                if (string.Compare(CustomerIP, "unknown", true) == 0)
-//                    return System.Web.HttpContext.Current.Request.UserHostAddress;
-//                return CustomerIP;
-//            }
-//            catch
-//            {
-//                userIP = "0.0.0.0";
-//            }
-//            return userIP;
-//#else
-//            if (RegisterHttpContextExtensions.Current == null || RegisterHttpContextExtensions.Current.Request == null)
-//                return userIP;
-//            string CustomerIP = "";
-//            //CustomerIP = MyHttpContext.Current.Request.Headers["HTTP_X_FORWARDED_FOR"];
-//            //if (!string.IsNullOrEmpty(CustomerIP))
-//            //    return CustomerIP;
-
-//            //CustomerIP = MyHttpContext.Current.Request.Headers["REMOTE_ADDR"];
-//            //if (!String.IsNullOrEmpty(CustomerIP))
-//            //    return CustomerIP;
-
-//            //CustomerIP = MyHttpContext.Current.Request.Headers["HTTP_X_FORWARDED_FOR"];
-//            //if (!String.IsNullOrEmpty(CustomerIP))
-//            //    return CustomerIP;
-
-//            CustomerIP = RegisterHttpContextExtensions.Current.Request.Headers["X-Forwarded-For"].FirstOrDefault();
-//            if (string.IsNullOrEmpty(CustomerIP))
-//            {
-//                CustomerIP = RegisterHttpContextExtensions.Current.Connection.RemoteIpAddress.ToString();
-//            }
-//            return CustomerIP;
-
-//#endif
-//        }
         /// <summary>
         /// 获取当前IP地址
         /// </summary>
         /// <param name="preferredNetworks"></param>
         /// <returns></returns>
-        public static string GetCurrentIp(string preferredNetworks = null)
+        public static string GetLocalV4IP2(string preferredNetworks = null)
         {
             var instanceIp = "127.0.0.1";
 
