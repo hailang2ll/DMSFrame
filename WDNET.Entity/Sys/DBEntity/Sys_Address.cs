@@ -11,7 +11,7 @@ namespace WDNET.Entity.DBEntity
     /// 
 	/// </summary>
 	[Serializable]
-    [TableMapping(Name = "Sys_Address", PrimaryKey = "ID", ConfigName = "trydou_sys")]
+    [TableMapping(Name = "Sys_Address", PrimaryKey = "ID")]
     public class Sys_Address : BaseEntity
     {
 

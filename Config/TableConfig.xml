@@ -6,7 +6,7 @@
     <WithLock>true</WithLock> 
     <Author>dbo</Author>
     <CacheDependency>true</CacheDependency> 
-    <ConnectString>Integrated Security=False;server=192.168.31.200;database=trydou_admin;User ID=devuser;Password=yxw-88888;Connect Timeout=30</ConnectString>
+    <ConnectString>Integrated Security=False;server=192.168.31.200;database=WDNET20;User ID=devuser;Password=yxw-88888;Connect Timeout=30</ConnectString>
   </TableConfiguration>
 </ArrayOfTableConfiguration>
   

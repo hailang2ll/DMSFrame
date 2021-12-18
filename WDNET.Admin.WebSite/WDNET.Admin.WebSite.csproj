@@ -1197,7 +1197,19 @@
     <Content Include="scripts\vue.min.js" />
     <Content Include="ShowErrorPage.aspx" />
     <Content Include="ShowMessagePage.aspx" />
+    <Content Include="SysBase\DeptList.aspx" />
+    <Content Include="SysBase\GroupList.aspx" />
+    <Content Include="SysBase\GroupRightList.aspx" />
+    <Content Include="SysBase\GroupUserList.aspx" />
+    <Content Include="SysBase\LogFileList.aspx" />
+    <Content Include="SysBase\RightsEdit.aspx" />
+    <Content Include="SysBase\RightsList.aspx" />
+    <Content Include="SysBase\SysAddressInfoList.aspx" />
+    <Content Include="SysBase\SysAdminOperationLogList.aspx" />
     <Content Include="SysBase\SysCenterList.aspx" />
+    <Content Include="SysBase\SysErrorList.aspx" />
+    <Content Include="SysBase\UserEdit.aspx" />
+    <Content Include="SysBase\UserList.aspx" />
     <Content Include="test.html" />
     <Content Include="Web.config" />
     <Content Include="scripts\linqjs\snippets\Action0.snippet" />
@@ -1246,12 +1258,96 @@
     <Compile Include="ShowMessagePage.aspx.designer.cs">
       <DependentUpon>ShowMessagePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SysBase\DeptList.aspx.cs">
+      <DependentUpon>DeptList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysBase\DeptList.aspx.designer.cs">
+      <DependentUpon>DeptList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysBase\GroupList.aspx.cs">
+      <DependentUpon>GroupList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysBase\GroupList.aspx.designer.cs">
+      <DependentUpon>GroupList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysBase\GroupRightList.aspx.cs">
+      <DependentUpon>GroupRightList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysBase\GroupRightList.aspx.designer.cs">
+      <DependentUpon>GroupRightList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysBase\GroupUserList.aspx.cs">
+      <DependentUpon>GroupUserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysBase\GroupUserList.aspx.designer.cs">
+      <DependentUpon>GroupUserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysBase\LogFileList.aspx.cs">
+      <DependentUpon>LogFileList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysBase\LogFileList.aspx.designer.cs">
+      <DependentUpon>LogFileList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysBase\RightsEdit.aspx.cs">
+      <DependentUpon>RightsEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysBase\RightsEdit.aspx.designer.cs">
+      <DependentUpon>RightsEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysBase\RightsList.aspx.cs">
+      <DependentUpon>RightsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysBase\RightsList.aspx.designer.cs">
+      <DependentUpon>RightsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysBase\SysAddressInfoList.aspx.cs">
+      <DependentUpon>SysAddressInfoList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysBase\SysAddressInfoList.aspx.designer.cs">
+      <DependentUpon>SysAddressInfoList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysBase\SysAdminOperationLogList.aspx.cs">
+      <DependentUpon>SysAdminOperationLogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysBase\SysAdminOperationLogList.aspx.designer.cs">
+      <DependentUpon>SysAdminOperationLogList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SysBase\SysCenterList.aspx.cs">
       <DependentUpon>SysCenterList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SysBase\SysCenterList.aspx.designer.cs">
       <DependentUpon>SysCenterList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysBase\SysErrorList.aspx.cs">
+      <DependentUpon>SysErrorList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysBase\SysErrorList.aspx.designer.cs">
+      <DependentUpon>SysErrorList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysBase\UserEdit.aspx.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysBase\UserEdit.aspx.designer.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysBase\UserList.aspx.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysBase\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
     </Compile>
     <Compile Include="zMasterSystemPage.Master.cs">
       <DependentUpon>zMasterSystemPage.Master</DependentUpon>
@@ -1298,6 +1394,10 @@
     <ProjectReference Include="..\DMSF.Common\WDNET.Http\WDNET.Http.csproj">
       <Project>{a1b7d497-c3cb-43a6-a616-555220feb748}</Project>
       <Name>WDNET.Http</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DMSF.Common\WDNET.PageLib\WDNET.PageLib.csproj">
+      <Project>{6164a7af-1a95-44dc-8edb-1b078bf25777}</Project>
+      <Name>WDNET.PageLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\WDNET.BizLogic\WDNET.BizLogic.csproj">
       <Project>{9b3974f5-6829-406b-adb4-c88c82ea42aa}</Project>

@@ -1,5 +1,6 @@
 ﻿using DMS.Commonfx.Extensions;
 using System;
+using System.IO;
 
 namespace DMS.Commonfx.Helper
 {
@@ -50,11 +51,10 @@ namespace DMS.Commonfx.Helper
         {
             get
             {
-
-                return GetValue("ConfigPath", AppDomain.CurrentDomain.SetupInformation.ApplicationBase);
-
+                return GetTableConfig;
             }
         }
+       
         /// <summary>
         /// 获取域名
         /// </summary>

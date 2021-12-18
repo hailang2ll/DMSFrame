@@ -11,7 +11,7 @@ namespace WDNET.Admin.WebSite.SysBase
     /// <summary>
     /// 
     /// </summary>
-    public partial class SysCenterList :AdminLoginPageBase
+    public partial class RightsList : AdminLoginPageBase
     {
         /// <summary>
         /// 

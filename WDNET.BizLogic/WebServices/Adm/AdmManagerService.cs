@@ -906,7 +906,7 @@ namespace WDNET.BizLogic.WebServices
         /// <returns></returns>
         public object getLogOperationList(BaseResult result, SysAdminOperationLogParam param)
         {
-            WhereClip<Sys_AdminOperationLog> where = new WhereClip<Sys_AdminOperationLog>();
+            WhereClip<Adm_OperationLog> where = new WhereClip<Adm_OperationLog>();
             if (!string.IsNullOrEmpty(param.PageName))
                 where.And(q => q.PageName.Like(param.PageName));
             if (!string.IsNullOrEmpty(param.Url))
@@ -936,7 +936,7 @@ namespace WDNET.BizLogic.WebServices
             {
                 where.And(q => q.LocalIP == param.LocalIP);
             }
-            return DMST.Create<Sys_AdminOperationLog>().Where(where)
+            return DMST.Create<Adm_OperationLog>().Where(where)
                .OrderBy(q => q.OrderBy(q.CreateTime.Desc()))
                .Pager(param.pageIndex, param.pageSize)
                .ToConditionResult(param.totalCount);
@@ -950,7 +950,7 @@ namespace WDNET.BizLogic.WebServices
         /// <returns></returns>
         public object getFileLogList(BaseResult result)
         {
-            string logFilePath = Path.Combine(ConfigHelper.GetValue("LogFile"), "Logs");
+            string logFilePath = Path.Combine(ConfigHelper.GetApplicationBase, "Logs");
             if (!Directory.Exists(logFilePath))
             {
                 Directory.CreateDirectory(logFilePath);
@@ -998,7 +998,7 @@ namespace WDNET.BizLogic.WebServices
         public void delFileLog(BaseResult result, string param)
         {
             if (!CheckRight("FileLogDel", ref result)) { return; }
-            string logFilePath = Path.Combine(ConfigHelper.GetValue("LogFile"), "Logs", param);
+            string logFilePath = Path.Combine(ConfigHelper.GetApplicationBase, "Logs", param);
             if (!File.Exists(logFilePath))
             {
                 result.errno = 1;
@@ -1007,7 +1007,7 @@ namespace WDNET.BizLogic.WebServices
             }
             try
             {
-                string bakFilePath = Path.Combine(ConfigHelper.GetValue("LogFile"), "Logs", "BAK", param.Replace(".log", DateTime.Now.Ticks + ".log"));
+                string bakFilePath = Path.Combine(ConfigHelper.GetApplicationBase, "Logs", "BAK", param.Replace(".log", DateTime.Now.Ticks + ".log"));
                 FileInfo formalFileInfo = new FileInfo(bakFilePath);
                 if (!Directory.Exists(formalFileInfo.DirectoryName))
                 {
@@ -1115,7 +1115,13 @@ namespace WDNET.BizLogic.WebServices
                     StringBuilder sXml = new StringBuilder();
                     GetLocal(0, ref sXml, AddressList);
                     xmlResult.ChildNodes[0].InnerXml += sXml.ToString();
-                    using (XmlWriter xw = XmlWriter.Create(ConfigHelper.GetConfigPath + "\\StaticSource\\SiteXml_Sys_AddressInfoExt.xml"))
+                    string dir = Path.Combine(ConfigHelper.GetConfigPath, "StaticSource");
+                    if (!Directory.Exists(dir))
+                    {
+                        Directory.CreateDirectory(dir);
+                    }
+                    string savePath = Path.Combine(dir, "SiteXml_Sys_AddressInfoExt.xml");
+                    using (XmlWriter xw = XmlWriter.Create(savePath))
                     {
                         xmlResult.WriteTo(xw);
                     }
@@ -1133,11 +1139,44 @@ namespace WDNET.BizLogic.WebServices
                 {
                     List<AddressEntity> addressList = DMST.Create<Sys_Address>().ToList<AddressEntity>();
                     StringBuilder sJson = new StringBuilder();
+                    string jsonStr = GetLocalJson(100000, addressList);
+                    sJson.Append(jsonStr);
+
+                    string dir = Path.Combine(ConfigHelper.GetConfigPath, "StaticSource");
+                    if (!Directory.Exists(dir))
+                    {
+                        Directory.CreateDirectory(dir);
+                    }
+                    string savePath = Path.Combine(dir, "SiteXml_Sys_AddressInfoExt.json");
+                    if (System.IO.File.Exists(savePath))
+                    {
+                        System.IO.File.Delete(savePath);
+                    }
+                    File.Create(savePath).Close();
+                    using (System.IO.StreamWriter sw = new StreamWriter(savePath, false, Encoding.UTF8))
+                    {
+                        sw.Write(sJson.ToString());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    result.errmsg = ex.Message;
+                    result.errno = 1;
+                    DMSFrame.Loggers.LoggerManager.FileLogger.Log(ex, ReflectionUtils.GetMethodBaseInfo(System.Reflection.MethodBase.GetCurrentMethod()), DMSFrame.Loggers.ErrorLevel.Fatal);
+                }
+
+            }
+            else if (type == "js")
+            {
+                try
+                {
+                    List<AddressEntity> addressList = DMST.Create<Sys_Address>().ToList<AddressEntity>();
+                    StringBuilder sJson = new StringBuilder();
                     sJson.Append("var address=");
                     string jsonStr = GetLocalJson(100000, addressList);
                     sJson.Append(jsonStr);
 
-                    string filePath = "LogFile";// FileHandler.GetFramePath + "\\scripts\\location.js";
+                    string filePath = ConfigHelper.GetApplicationBase + "\\scripts\\locationdata.js";
                     if (System.IO.File.Exists(filePath))
                     {
                         System.IO.File.Delete(filePath);

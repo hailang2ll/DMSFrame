@@ -165,7 +165,7 @@ namespace Admin.PageLib
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="projectName">YWMall.PageLib.EnumProject</param>
+        /// <param name="projectName"></param>
         /// <param name="message"></param>
         /// <param name="exception"></param>
         protected override void Log(string projectName, string message, Exception exception)

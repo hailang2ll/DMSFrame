@@ -19,7 +19,7 @@ namespace WDNET.Entity.DBEntity
     /// </summary>
     [Serializable]
     [TableMapping(Name = "Adm_OperationLog", PrimaryKey = "OperID")]
-    public class Sys_AdminOperationLog : BaseEntity
+    public class Adm_OperationLog : BaseEntity
     {
 
         #region Private Properties

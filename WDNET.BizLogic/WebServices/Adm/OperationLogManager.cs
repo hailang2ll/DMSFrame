@@ -24,15 +24,15 @@ namespace WDNET.BizLogic
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public bool Insert(Sys_AdminOperationLog entity)
+        public bool Insert(Adm_OperationLog entity)
         {
-            return DMST.Create<Sys_AdminOperationLog>().Insert(entity) > 0;
+            return DMST.Create<Adm_OperationLog>().Insert(entity) > 0;
         }
 
         #region 其他方法
         public string GetLastPage(int? userID)
         {
-            Sys_AdminOperationLog entity = DMST.Create<Sys_AdminOperationLog>().Where(q => q.UserID == userID)
+            Adm_OperationLog entity = DMST.Create<Adm_OperationLog>().Where(q => q.UserID == userID)
                  .OrderBy(q => q.OrderBy(q.CreateTime.Desc()))
                  .Select(q => q.Columns(q.PageName))
                  .ToEntity();
@@ -66,7 +66,7 @@ namespace WDNET.BizLogic
             {
                 return true;
             }
-            Sys_AdminOperationLog entity = new Sys_AdminOperationLog()
+            Adm_OperationLog entity = new Adm_OperationLog()
             {
                 UserID = userId,
                 UserName = userName,

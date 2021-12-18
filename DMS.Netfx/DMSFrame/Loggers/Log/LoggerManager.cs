@@ -27,7 +27,7 @@ namespace DMSFrame.Loggers
         {
             if (logger == null)
             {
-                string logFilePath = Path.Combine(ConfigurationHelper.AppSettingPath("LogFile"), "Logs");
+                string logFilePath = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "Logs");
                 if (!Directory.Exists(logFilePath))
                 {
                     Directory.CreateDirectory(logFilePath);

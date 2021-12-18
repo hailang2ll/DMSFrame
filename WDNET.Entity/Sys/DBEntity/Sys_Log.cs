@@ -18,7 +18,7 @@ namespace WDNET.Entity.DBEntity
     /// 
     /// </summary>
     [Serializable]
-    [TableMapping(Name = "Sys_Log", PrimaryKey = "LogID", ConfigName = "trydou_sys")]
+    [TableMapping(Name = "Sys_Log", PrimaryKey = "LogID")]
     public class Sys_Log : BaseEntity
     {
 
