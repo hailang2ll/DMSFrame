@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9B3974F5-6829-406B-ADB4-C88C82EA42AA}</ProjectGuid>
+    <ProjectGuid>{6164A7AF-1A95-44DC-8EDB-1B078BF25777}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WDNET.BizLogic</RootNamespace>
-    <AssemblyName>WDNET.BizLogic</AssemblyName>
+    <RootNamespace>WDNET.PageLib</RootNamespace>
+    <AssemblyName>WDNET.PageLib</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -42,43 +42,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adm\Adm_DeptBLL.cs" />
-    <Compile Include="Adm\Adm_GroupBLL.cs" />
-    <Compile Include="Adm\Adm_RightsBLL.cs" />
-    <Compile Include="Adm\Adm_UserBLL.cs" />
-    <Compile Include="BaseBLL.cs" />
+    <Compile Include="AdminLoginPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IAdminLoginPageBase.cs" />
+    <Compile Include="PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebServiceFrameBase.cs" />
-    <Compile Include="WebServices\Adm\AdmManagerService.cs" />
-    <Compile Include="WebServices\Adm\AdmUserLoginService.cs" />
-    <Compile Include="WebServices\Adm\OperationLogManager.cs" />
-    <Compile Include="WebServices\Adm\SysOperationService.cs" />
-    <Compile Include="WebServices\Adm\Sys_LogManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DMS.Netfx\DMS.Commonfx\DMS.Commonfx.csproj">
+    <ProjectReference Include="..\..\DMS.Netfx\DMS.Commonfx\DMS.Commonfx.csproj">
       <Project>{73a27bf6-c34d-4843-a8fe-02633f552882}</Project>
       <Name>DMS.Commonfx</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DMS.Netfx\DMSFrame.WebService\DMSFrame.WebService.csproj">
-      <Project>{f33e3cca-210a-4464-9350-618d4f288054}</Project>
-      <Name>DMSFrame.WebService</Name>
+    <ProjectReference Include="..\..\WDNET.BizLogic\WDNET.BizLogic.csproj">
+      <Project>{9b3974f5-6829-406b-adb4-c88c82ea42aa}</Project>
+      <Name>WDNET.BizLogic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DMS.Netfx\DMSFrame\DMSFrame.csproj">
-      <Project>{33daf4dc-43dc-45cf-a7ff-507577183de0}</Project>
-      <Name>DMSFrame</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DMSF.Common\WDNET.Enum\WDNET.Enum.csproj">
+    <ProjectReference Include="..\WDNET.Enum\WDNET.Enum.csproj">
       <Project>{5a1e1b51-491c-4534-945d-3d8c57f0711e}</Project>
       <Name>WDNET.Enum</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WDNET.Contracts\WDNET.Contracts.csproj">
-      <Project>{54f80792-6917-4f00-b3b0-c23a45977c63}</Project>
-      <Name>WDNET.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WDNET.Entity\WDNET.Entity.csproj">
-      <Project>{2c868a9e-9e0e-4c13-b65b-95478de2620a}</Project>
-      <Name>WDNET.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -64,7 +64,7 @@ namespace DMS.Commonfx.Extensions
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static string ToJsonByEnumAndName(this Type type)
+        public static string ToJsonKeyName(this Type type)
         {
             if (!type.IsEnum)
                 throw new InvalidOperationException("亲，必须是Enum类型哦，请检查类型是否正确哈。");
@@ -113,40 +113,44 @@ namespace DMS.Commonfx.Extensions
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Dictionary<string, int> ToDictionary(this Type type)
+        public static Dictionary<int, string> ToDictionaryKeyName(this Type type)
         {
-            Dictionary<string, int> dic = new Dictionary<string, int>();
+            Dictionary<int, string> dic = new Dictionary<int, string>();
             if (!type.IsEnum)
             {
                 return dic;
             }
             foreach (var item in Enum.GetValues(type))
             {
-                dic.Add(item.ToString(), Convert.ToInt32(item));
+                dic.Add(Convert.ToInt32(item), item.ToString());
             }
             return dic;
         }
-
-        //public static Dictionary<string, int> EnumToDictionary<T>(this Type type)
-        //{
-        //    Dictionary<string, int> dic = new Dictionary<string, int>();
-        //    if (!typeof(T).IsEnum)
-        //    {
-        //        return dic;
-        //    }
-        //    //string desc = string.Empty;
-        //    foreach (var item in Enum.GetValues(typeof(T)))
-        //    {
-        //        //var attrs = item.GetType().GetField(item.ToString()).GetCustomAttributes(typeof(System.ComponentModel.DescriptionAttribute), true);
-        //        //if (attrs != null && attrs.Length > 0)
-        //        //{
-        //        //    System.ComponentModel.DescriptionAttribute descAttr = attrs[0] as System.ComponentModel.DescriptionAttribute;
-        //        //    desc = descAttr.Description;
-        //        //}
-        //        dic.Add(item.ToString(), Convert.ToInt32(item));
-        //    }
-        //    return dic;
-        //}
+        /// <summary>
+        /// 转换为字典
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static Dictionary<int, string> ToDictionaryKeyDesc(this Type type)
+        {
+            Dictionary<int, string> dic = new Dictionary<int, string>();
+            if (!type.IsEnum)
+            {
+                return dic;
+            }
+            string desc = string.Empty;
+            foreach (var item in Enum.GetValues(type))
+            {
+                var attrs = item.GetType().GetField(item.ToString()).GetCustomAttributes(typeof(System.ComponentModel.DescriptionAttribute), true);
+                if (attrs != null && attrs.Length > 0)
+                {
+                    System.ComponentModel.DescriptionAttribute descAttr = attrs[0] as System.ComponentModel.DescriptionAttribute;
+                    desc = descAttr.Description;
+                }
+                dic.Add(Convert.ToInt32(item), desc);
+            }
+            return dic;
+        }
 
 
         #region private

@@ -23,7 +23,16 @@ namespace DMS.Commonfx.Helper
                 value = defaultValue;
             return value;
         }
-
+        /// <summary>
+        /// 当前应用程序目前
+        /// </summary>
+        public static string GetApplicationBase
+        {
+            get
+            {
+                return AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+            }
+        }
         /// <summary>
         /// 获取数据库配置文件路径 
         /// </summary>
@@ -34,7 +43,6 @@ namespace DMS.Commonfx.Helper
                 return GetValue("TableConfig", AppDomain.CurrentDomain.SetupInformation.ApplicationBase);
             }
         }
-
         /// <summary>
         /// 获取项目文路径
         /// </summary>
