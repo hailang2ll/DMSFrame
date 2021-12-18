@@ -40,7 +40,7 @@
                         <td>${ShortText}</td>
                     </tr>
                     <tr style="display: none">
-                        <td colspan="3" style="padding: 5px;">
+                        <td colspan="4" style="padding: 5px;">
                             <textarea cols="100" rows="50" class="input_remark" style="width: 97%; height: 340px; border: 0; background: #fffbf2; padding: 10px">${ContentText}</textarea>
                         </td>
                     </tr>

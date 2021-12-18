@@ -55,6 +55,7 @@
     <Compile Include="Admin\ViewEntity\vw_Adm_Rights.cs" />
     <Compile Include="Admin\ViewEntity\vw_Adm_Rights_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Publish\DBEntity\Pub_Notice.cs" />
     <Compile Include="Sys\DBEntity\Sys_Address.cs" />
     <Compile Include="Sys\DBEntity\Sys_Log.cs" />
     <Compile Include="Sys\ExtEntity\SysAddressJsonExt.cs" />

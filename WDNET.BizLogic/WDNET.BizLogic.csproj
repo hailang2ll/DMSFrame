@@ -54,6 +54,7 @@
     <Compile Include="WebServices\Adm\OperationLogManager.cs" />
     <Compile Include="WebServices\Adm\SysOperationService.cs" />
     <Compile Include="WebServices\Adm\Sys_LogManager.cs" />
+    <Compile Include="WebServices\Publish\NovelService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DMS.Netfx\DMS.Commonfx\DMS.Commonfx.csproj">
