@@ -23,7 +23,7 @@
                         <span class="g_star">*</span>小说类型：
                     </td>
                     <td>
-                        <select id="ddlPageType" class="select-one required w200" name="PageType">
+                        <select id="ddlNovelType" class="select-one required w200" name="NovelType">
                             <option value="1">首页公告</option>
                             <option value="2">后台首页公告</option>
                         </select>
@@ -35,7 +35,7 @@
                     </td>
                     <td>
                         <input type="text" id="txtTitle" name="Title" class="g_txt required w300" />
-                        <input type="hidden" id="hidNoticeKey" name="NoticeKey" />
+                        <input type="hidden" id="hidNovelKey" name="NovelKey" />
                     </td>
                 </tr>
                 <tr>
@@ -46,36 +46,11 @@
                         <textarea rows="15" cols="100" id="txtBody" name="Body" style="width: 100%"></textarea>
                     </td>
                 </tr>
-
-                <tr>
-                    <td class="g_table_label">
-                        <span class="g_star">*</span>起始时间
-                    </td>
-                    <td>
-                        <input type="text" id="txtStartTime" name="StartTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd 00:00:00'})"
-                            class="g_txt w130 required" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="g_table_label">结束时间：
-                    </td>
-                    <td>
-                        <input type="text" id="txtEndTime" name="EndTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd 00:00:00'})"
-                            class="g_txt w130 required" />
-                    </td>
-                </tr>
                 <tr>
                     <td class="g_table_label">状态：
                     </td>
                     <td>
                         <input type="checkbox" id="chkStatusFlag" name="StatusFlag" checked="checked" /><label>已审</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="g_table_label">备注：
-                    </td>
-                    <td>
-                        <input type="text" id="txtRemark" name="Remark" class="g_txt w500" />
                     </td>
                 </tr>
             </table>
@@ -92,11 +67,10 @@
                 this.editor();
                 this.bindData();
                 this.bindEvent();
-                $("#targetForm").registerFileds(); //注册验证
             },
             bindData: function () {
-                if (G.util.parse.key("NoticeKey") && G.util.parse.key("Action") == "Edit") {
-                    G.util.jsonpost({ mod: "Novel", act: "GetNotice", param: { NoticeKey: G.util.parse.key("NoticeKey") } }, function (res) {
+                if (G.util.parse.key("NovelKey") && G.util.parse.key("Action") == "Edit") {
+                    G.util.jsonpost({ mod: "Novel", act: "GetNovel", param: { NoticeKey: G.util.parse.key("NovelKey") } }, function (res) {
                         if (res.errno == 0) {
                             $("#targetForm").fillForm(res.data, function (data) {
                                 pager.editorID1.html(data["Body"]);
@@ -134,6 +108,7 @@
             },
             bindEvent: function () {
                 var self = this;
+                $("#targetForm").registerFileds(); //注册验证
                 $("#targetForm").submit(function () {
                     var entity = $(this).formToJSON(true, function (oEntity) {
                         if (oEntity["StatusFlag"]) {
@@ -149,7 +124,7 @@
                             $("#txtEndTime").after("<span class='g_star tip_errmsg'>开始时间不能超过结束时间</span>");
                             return;
                         }
-                        G.util.jsonpost({ mod: "Notice", act: "AddNotice", param: entity, action: G.util.parse.key("Action") }, function (res) {
+                        G.util.jsonpost({ mod: "Novel", act: "AddNovel", param: entity, action: G.util.parse.key("Action") }, function (res) {
                             if (res.errno == 0) {
                                 if (G.util.parse.key("Action") == "Add") {
                                     alert("数据添加成功!");

@@ -12,7 +12,7 @@ namespace WDNET.BizLogic.WebServices
 {
     public class NovelService : WebServiceFrameBase
     {
-        public object GetNoticeList(BaseResult result, NovelParam param)
+        public object GetNovelList(BaseResult result, NovelParam param)
         {
             WhereClip<Pub_Novel> where = new WhereClip<Pub_Novel>();
             if (!string.IsNullOrEmpty(param.Title))
@@ -23,9 +23,9 @@ namespace WDNET.BizLogic.WebServices
             {
                 where.And(m => m.StatusFlag == param.StatusFlag);
             }
-            if (param.PageType.HasValue && param.PageType > 0)
+            if (param.NovelType.HasValue && param.NovelType > 0)
             {
-                where.And(m => m.PageType == param.PageType);
+                where.And(m => m.NovelType == param.NovelType);
             }
             return DMST.Create<Pub_Novel>().Where(where)
               .OrderBy(q => q.OrderBy(q.CreateTime.Desc()))
@@ -35,21 +35,24 @@ namespace WDNET.BizLogic.WebServices
 
         }
 
-        public void AddNotice(BaseResult result, NovelParam param, string action)
+        public void AddNovel(BaseResult result, NovelParam param, string action)
         {
             if (action == "Add")
             {
-                if (!CheckRight("NoticeAdd", ref result)) { return; }
+                if (!CheckRight("NovelAdd", ref result)) { return; }
 
                 Pub_Novel entity = new Pub_Novel()
                 {
-                    NovelKey = Guid.NewGuid(), 
+                    NovelKey = Guid.NewGuid(),
                     Title = param.Title,
                     Body = param.Body,
                     StatusFlag = param.StatusFlag,
-                    PageType = 0,
+                    NovelType = param.NovelType,
                     CreateTime = DateTime.Now,
-                    DeleteFlag = false,
+                    CreateBy = userTicket.UserID,
+                    CreateName = userTicket.UserName,
+                    UpdateTime = StaticConst.DATEBEGIN,
+                    DeleteTime = StaticConst.DATEBEGIN, 
                 };
                 bool flag = DMST.Create<Pub_Novel>().Insert(entity) > 0;
                 if (flag)
@@ -65,12 +68,12 @@ namespace WDNET.BizLogic.WebServices
             }
             else if (action == "Edit")
             {
-                if (!CheckRight("NoticeEdit", ref result)) { return; }
+                if (!CheckRight("NovelEdit", ref result)) { return; }
                 Pub_Novel entity = new Pub_Novel()
                 {
                     Title = param.Title,
                     Body = param.Body,
-                    PageType = 0,
+                    NovelType = param.NovelType,
                     StatusFlag = param.StatusFlag,
                 };
                 bool flag = DMST.Create<Pub_Novel>().Edit(entity, q => q.NovelKey == entity.NovelKey) > 0;
@@ -105,7 +108,7 @@ namespace WDNET.BizLogic.WebServices
             DMSTransactionScopeEntity tsEntity = new DMSTransactionScopeEntity();
             if (batchType == 2)
             {
-                if (!CheckRight("NoticeDel", ref result)) { return null; }
+                if (!CheckRight("NovelDel", ref result)) { return null; }
 
                 foreach (var item in NoticeKeys)
                 {
@@ -118,7 +121,7 @@ namespace WDNET.BizLogic.WebServices
             }
             else
             {
-                if (!CheckRight("NoticeStatusFlag", ref result)) { return null; }
+                if (!CheckRight("NovelStatusFlag", ref result)) { return null; }
                 foreach (var item in NoticeKeys)
                 {
                     if (item.HasValue && item != Guid.Empty)
@@ -141,15 +144,15 @@ namespace WDNET.BizLogic.WebServices
             return null;
         }
 
-        public object GetNotice(BaseResult result, NovelParam param)
+        public object GetNovel(BaseResult result, NovelParam param)
         {
-            var novelEntity = DMST.Create<Pub_Novel>().Where(q => q.NovelKey == param.NovelKey && q.DeleteFlag == false);
+            var novelEntity = DMST.Create<Pub_Novel>().Where(q => q.NovelKey == param.NovelKey && q.DeleteFlag == false).FirstOrDefault();
             return novelEntity;
         }
 
-        public object DeleteNotice(BaseResult result, string param)
+        public object DeleteNovel(BaseResult result, string param)
         {
-            if (!CheckRight("NoticeDel", ref result) || string.IsNullOrEmpty(param)) { return null; }
+            if (!CheckRight("NovelDel", ref result) || string.IsNullOrEmpty(param)) { return null; }
 
             Guid novelKey = param.ToGuid();
             return DMST.Create<Pub_Novel>().Edit(new Pub_Novel() { DeleteFlag = true }, q => q.NovelKey == novelKey);

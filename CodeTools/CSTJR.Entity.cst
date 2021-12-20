@@ -61,7 +61,7 @@ namespace <%= Namespace.Trim()==""?"CSTJR.Entity.DBEntity":Namespace %>
 		/// <summary>
 		/// <%= column.ExtendedProperties["CS_Description"].Value.ToString().Replace("\r\n", ";").Replace("\n", ";") %>.
 		/// </summary>
-		[ColumnMapping(Name = "<%= GetPropertyName(column) %>"<% if ((bool)column.ExtendedProperties["CS_IsIdentity"].Value) { %>,AutoIncrement = true<% } %><% if(GetSqlDbType(column)=="Text" || GetSqlDbType(column)=="NText" || column.Size==-1){%>,Size=-1<% } %>)<% if (GetPropertyName(column)=="CreateBy"||GetPropertyName(column)=="UpdateBy"||GetPropertyName(column)=="DeleteFlag"||GetPropertyName(column)=="DeleteTime"||GetPropertyName(column)=="DeleteBy"||GetPropertyName(column)=="CreateName"){%>, Newtonsoft.Json.JsonIgnore<%} %>]
+		[ColumnMapping(Name = "<%= GetPropertyName(column) %>"<% if ((bool)column.ExtendedProperties["CS_IsIdentity"].Value) { %>,AutoIncrement = true<% } %><% if(GetSqlDbType(column)=="Text" || GetSqlDbType(column)=="NText" || column.Size==-1){%>,Size=-1<% } %>)<% if (GetPropertyName(column)=="UpdateBy"||GetPropertyName(column)=="DeleteFlag"||GetPropertyName(column)=="DeleteTime"||GetPropertyName(column)=="DeleteBy"){%>, Newtonsoft.Json.JsonIgnore<%} %>]
 		<% if (column.IsForeignKeyMember) { %>
 		public <%= GetClassName(GetForeignKeyTable(column)) %> <%= GetClassName(GetForeignKeyTable(column)) %>
 		{

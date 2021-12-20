@@ -796,6 +796,7 @@
     <Content Include="images\workflow\ticon9.gif" />
     <Content Include="images\workflow\titiebarbg.gif" />
     <Content Include="login.html" />
+    <Content Include="loginout.aspx" />
     <Content Include="main.html" />
     <Content Include="Publish\NovelEdit.aspx" />
     <Content Include="Publish\NovelList.aspx" />
@@ -1245,6 +1246,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="loginout.aspx.cs">
+      <DependentUpon>loginout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loginout.aspx.designer.cs">
+      <DependentUpon>loginout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Publish\NovelEdit.aspx.cs">
       <DependentUpon>NovelEdit.aspx</DependentUpon>
@@ -1391,6 +1399,10 @@
     <Folder Include="scripts\kindeditor\plugins\override\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DMS.Netfx\DMS.Commonfx\DMS.Commonfx.csproj">
+      <Project>{73a27bf6-c34d-4843-a8fe-02633f552882}</Project>
+      <Name>DMS.Commonfx</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DMS.Netfx\DMS.Log4netfx\DMS.Log4netfx.csproj">
       <Project>{d0f494bc-52e5-4304-ab46-2759dc12a889}</Project>
       <Name>DMS.Log4netfx</Name>

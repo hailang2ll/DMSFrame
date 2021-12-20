@@ -16,17 +16,6 @@ namespace WDNET.Contracts
         public DateTime? EndTime { get; set; }//公告结束时间
         public string Body { get; set; }//公告内容
         public int? StatusFlag { get; set; }//状态
-        public int? PageType { get; set; }//页面类型
-        public DateTime? CreateTime { get; set; }//CreateTime
-        public string CreateName { get; set; }//CreateName
-        public int? CreateBy { get; set; }//CreateBy
-        public bool? DeleteFlag { get; set; }//DeleteFlag
-        public DateTime? DeleteTime { get; set; }//DeleteTime
-        public string DeleteName { get; set; }//DeleteName
-        public int? DeleteBy { get; set; }//DeleteBy
-        public DateTime? UpdateTime { get; set; }//UpdateTime
-        public string UpdateName { get; set; }//UpdateName
-        public int? UpdateBy { get; set; }//UpdateBy
-        public string Remark { get; set; }//Remark
+        public int? NovelType { get; set; }//页面类型
     }
 }
