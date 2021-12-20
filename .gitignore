@@ -320,3 +320,4 @@ ASALocalRun/
 *.binlog
 /ReferenceLibrary/Frame_new
 /ReferenceLibrary/Frame_old
+/Config
