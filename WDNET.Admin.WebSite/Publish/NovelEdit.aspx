@@ -87,7 +87,7 @@
                 KindEditor.ready(function (K) {
                     pager.editorID1 = K.create('textarea[name="Body"]', {
                         cssPath: ['/scripts/kindeditor/plugins/code/prettify.css'],
-                        uploadJson: 'http://upload.trydou.com/uploadcos?cut=0', //?dir=image&cut=0不分割,1分
+                        uploadJson: 'http://upload.trydou.com/api/uploadcos?fmt=4', //默认带Form参数&sitename=attached
                         fileManagerJson: '/common/file_manager_json.ashx',
                         allowFileManager: true,
                         overrideEdit: function (K) {
